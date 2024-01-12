@@ -198,7 +198,7 @@
                 </div>
             </div>
             <div class="row mb-3 d-flex justify-content-center">
-                <button id="draw-btn" class="btn btn-outline-dark">QUAY GIẢI!</button>
+                <button id="randomRewarded" class="btn btn-outline-dark">QUAY GIẢI!</button>
                 <button type="button" class="btn btn-outline-dark" data-toggle="modal"
                     data-target=".bd-example-modal-sm">
                     ?
@@ -210,13 +210,10 @@
                 <div id="odometer" class="odometer"></div>
             </div>
 
-            <!-- <h4>CONGRATULATION TO:</h4> -->
-
-
-            
+            <!-- <h4>CONGRATULATION TO:</h4> -->     
+            <div class="row mt-4" id="result">
+            </div>
         </div>
-        
-        <div id="result" class="mt-4"></div>
 
     </main>
     <div id="modal-container">
@@ -230,20 +227,21 @@
                 </svg>
 
 
-                <div class="row d-flex justify-content-between">
-                    <div class="col-sm">
+                <div class="row d-flex justify-content-between mb-5">
+                    <div class="col-3 d-flex justify-content-between">
                         <img id="img-left" src="./resources/cat3.gif"
                             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt="fatcat">
                     </div>
-                    <div class="col-sm">
-                        <div class="rounded-circle">
+                    <div class="col-6 d-flex justify-content-between">
+                        <div class="rounded-circle overflow-hidden m-auto" style="height: 400px; width: 400px;">
                             <img id="avatar" src="./resources/dog1.gif"
-                                class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                                class="img-fluid w-100 h-100 object-fit-cover"
+                                style="object-fit: cover !important;"
                                 onerror="this.onerror=null;this.src='./resources/dog1.gif';" alt="dog">
                         </div>
                     </div>
-                    <div class="col-sm">
+                    <div class="col-3 d-flex justify-content-between">
                         <img id="img-right" src="./resources/cat5.gif"
                             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt="cat">

@@ -25,6 +25,11 @@ let listMessage = []
 
 let members = []
 let rewardedMenberList = [];
+let khuyenkhich = [];
+let ba = [];
+let nhi = [];
+let nhat = [];
+let dacbiet = [];
 
 const el = document.getElementById('odometer');//.innerHTML = Math.floor(Math.random() * 1000) + 1;
 const od = new Odometer({
@@ -128,6 +133,83 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 let loop = false;
 let spinNum = null
 let trueNum = null;
+const resultListElement = document.getElementById("result");
+const randomRewarded = document.getElementById("randomRewarded");
+// ================ KHUYẾN KHÍCH =================
+const option1 = document.getElementById("option1");
+option1.onclick = function() {
+    resultListElement.innerHTML = "";
+    khuyenkhich.forEach((item, index) => {
+        const listItem = document.createElement("li");
+        listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
+        listItem.style.height = "75px";
+        listItem.textContent = `${index + 1}) GIẢI KHUYẾN KHÍCH: ${item.Name} - ${item.ID} - ${item.Department}`;
+        const listItemWrapper = document.createElement("ul");
+        listItemWrapper.className = "col-6";
+        listItemWrapper.appendChild(listItem);
+        resultListElement.appendChild(listItemWrapper);
+      });
+  };
+// ================ BA =================
+const option2 = document.getElementById("option2");
+option2.onclick = function() {
+    resultListElement.innerHTML = "";
+    ba.forEach((item, index) => {
+        const listItem = document.createElement("li");
+        listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
+        listItem.style.height = "75px";
+        listItem.textContent = `${index + 1}) GIẢI BA: ${item.Name} - ${item.ID} - ${item.Department}`;
+        const listItemWrapper = document.createElement("ul");
+        listItemWrapper.className = "col-6";
+        listItemWrapper.appendChild(listItem);
+        resultListElement.appendChild(listItemWrapper);
+    });
+};
+// ================ NHI =================
+const option3 = document.getElementById("option3");
+option3.onclick = function() {
+    resultListElement.innerHTML = "";
+    nhi.forEach((item, index) => {
+        const listItem = document.createElement("li");
+        listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
+        listItem.style.height = "75px";
+        listItem.textContent = `${index + 1}) GIẢI NHÌ: ${item.Name} - ${item.ID} - ${item.Department}`;
+        const listItemWrapper = document.createElement("ul");
+        listItemWrapper.className = "col-6";
+        listItemWrapper.appendChild(listItem);
+        resultListElement.appendChild(listItemWrapper);
+        });
+    };
+// ================ NHẤT =================
+const option4 = document.getElementById("option4");
+option4.onclick = function() {
+    resultListElement.innerHTML = "";
+    nhat.forEach((item, index) => {
+        const listItem = document.createElement("li");
+        listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
+        listItem.style.height = "75px";
+        listItem.textContent = `${index + 1}) GIẢI NHẤT: ${item.Name} - ${item.ID} - ${item.Department}`;
+        const listItemWrapper = document.createElement("ul");
+        listItemWrapper.className = "col-6";
+        listItemWrapper.appendChild(listItem);
+        resultListElement.appendChild(listItemWrapper);
+        });
+    };
+// ================ ĐẶC BIỆT =================
+const option5 = document.getElementById("option5");
+option5.onclick = function() {
+    resultListElement.innerHTML = "";
+    dacbiet.forEach((item, index) => {
+        const listItem = document.createElement("li");
+        listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
+        listItem.style.height = "75px";
+        listItem.textContent = `${index + 1}) GIẢI ĐẶC BIỆT: ${item.Name} - ${item.ID} - ${item.Department}`;
+        const listItemWrapper = document.createElement("ul");
+        listItemWrapper.className = "col-6";
+        listItemWrapper.appendChild(listItem);
+        resultListElement.appendChild(listItemWrapper);
+        });
+    };
 
 $(document).ready(function () {
     const rateEle = $("#rate-for-it");
@@ -178,6 +260,7 @@ $(document).ready(function () {
     $("#option-reward input").click(function () {
         $(this).attr('checked', 'true');
         const t = $(this).attr('id')
+        console.log('bao t: ', t)
         var num = t.slice(-1)
         rate = parseInt(num * 1.5 + 1) * 10
         indexReward = num - 1// REWARD_MESSAGES[num - 1].message;
@@ -185,7 +268,7 @@ $(document).ready(function () {
         console.log(rate)
     })
 
-    $("#draw-btn").click(async function () {
+    $("#randomRewarded").click(async function () {
         if (loop) {
             loop = false;
             return;
@@ -245,22 +328,99 @@ $(document).ready(function () {
         return result
     }
 
-    async function setReward(selectedMenber) {
+    async function setReward(selectedMenber, reward) {
         REWARD_MESSAGES[indexReward].count++
-
-        listMessage.push(`${REWARD_MESSAGES[indexReward].count}) ${REWARD_MESSAGES[indexReward].message}: ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}`)
-        let temp = listMessage.map(x => `<li class="list-group-item list-group-item-success">${x}</li>`)
-        var temp2 = []
-        const chunkSize = 5;
-        for (let i = 0; i < temp.length; i += chunkSize) {
-            const chunk = temp.slice(i, i + chunkSize);
-            temp2.push(`<div class="col-sm"></ul class="list-group">${chunk.join('')}</ul></div>`)
+        // if(indexReward === 0) listMessage.push(khuyenkhich);
+        // if(indexReward === 1) listMessage.push(ba);
+        // if(indexReward === 2) listMessage.push(nhi);
+        // if(indexReward === 3) listMessage.push(nhat);
+        // if(indexReward === 3) listMessage.push(dacbiet);
+        // listMessage.push(`${REWARD_MESSAGES[indexReward].count}) ${REWARD_MESSAGES[indexReward].message}: ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}`)
+        // let temp = listMessage.map(x => `<li class="list-group-item list-group-item-success d-flex justify-content-start align-items-center" style="height: 75px;">${x}</li>`)
+        // var temp2 = []
+        // const chunkSize = 5;
+        // for (let i = 0; i < temp.length; i += chunkSize) {
+        //     const chunk = temp.slice(i, i + chunkSize);
+        //     temp2.push(`<div class="col-6"></ul class="list-group">${chunk.join('')}</ul></div>`)
+        // }
+        
+        // const result = `<div class="row">
+        // ${temp2.join('')}
+        // </div>`
+        resultListElement.innerHTML = "";
+        if(indexReward === 0) {
+            khuyenkhich.push(selectedMenber);
+            khuyenkhich.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
+                listItem.style.height = "75px";
+                listItem.textContent = `${index + 1}) GIẢI KHUYẾN KHÍCH: ${item.Name} - ${item.ID} - ${item.Department}`;
+                const listItemWrapper = document.createElement("ul");
+                listItemWrapper.className = "col-6";
+                listItemWrapper.appendChild(listItem);
+                resultListElement.appendChild(listItemWrapper);
+              });
         }
-        const result = `<div class="row">
-        ${temp2.join('')}
-        </div>`
+        console.log('khuyenkhich: ', khuyenkhich)
 
-        $("#result").html(result);
+        if(indexReward === 1) {
+            ba.push(selectedMenber);
+            ba.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
+                listItem.style.height = "75px";
+                listItem.textContent = `${index + 1}) GIẢI BA: ${item.Name} - ${item.ID} - ${item.Department}`;
+                const listItemWrapper = document.createElement("ul");
+                listItemWrapper.className = "col-6";
+                listItemWrapper.appendChild(listItem);
+                resultListElement.appendChild(listItemWrapper);
+              });
+        }
+        console.log('ba: ', ba)
+        if(indexReward === 2) {
+            nhi.push(selectedMenber);
+            nhi.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
+                listItem.style.height = "75px";
+                listItem.textContent = `${index + 1}) GIẢI NHÌ: ${item.Name} - ${item.ID} - ${item.Department}`;
+                const listItemWrapper = document.createElement("ul");
+                listItemWrapper.className = "col-6";
+                listItemWrapper.appendChild(listItem);
+                resultListElement.appendChild(listItemWrapper);
+              });
+        }
+        console.log('nhi: ', nhi)
+        if(indexReward === 3) {
+            nhat.push(selectedMenber);
+            nhat.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
+                listItem.style.height = "75px";
+                listItem.textContent = `${index + 1}) GIẢI NHẤT: ${item.Name} - ${item.ID} - ${item.Department}`;
+                const listItemWrapper = document.createElement("ul");
+                listItemWrapper.className = "col-6";
+                listItemWrapper.appendChild(listItem);
+                resultListElement.appendChild(listItemWrapper);
+              });
+        }
+        console.log('nhat: ', nhat)
+        if(indexReward === 4) {
+            dacbiet.push(selectedMenber);
+            dacbiet.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
+                listItem.style.height = "75px";
+                listItem.textContent = `${index + 1}) GIẢI ĐẶC BIỆT: ${item.Name} - ${item.ID} - ${item.Department}`;
+                const listItemWrapper = document.createElement("ul");
+                listItemWrapper.className = "col-6";
+                listItemWrapper.appendChild(listItem);
+                resultListElement.appendChild(listItemWrapper);
+                });
+             };
+        console.log('dacbiet: ', dacbiet)
+    
+        // $("#result").html(result);
 
         $('#modal-text').html(`Congratulations to ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}!`);
         $('#modal-p').html(`${REWARD_MESSAGES[indexReward].message}`);
@@ -284,61 +444,8 @@ $(document).ready(function () {
     }
 });
 
-// const image = [
-//     "111125.jpeg",
-//     "111125.jpg",
-//     "111127.png",
-//     "114671.jpg",
-//     "117499.jpg",
-//     "117934.jpg",
-//     "118478.jpg",
-//     "118478.png",
-//     "119102.jpg",
-//     "120700.jpg",
-//     "120960.jpg",
-//     "120980.jpg",
-//     "121246.jpg",
-//     "121487.jpg",
-//     "121488.JPEG",
-//     "121488.png",
-//     "122077.jpg",
-//     "40174.jpg",
-//     "40720.jpg",
-//     "41179.jpg",
-//     "43455.jpg",
-//     "44690.jpeg",
-//     "44708.jpg",
-//     "45425.jpg",
-//     "45544.jpg",
-//     "46798.jpg",
-//     "73657.jpg",
-//     "8008489.jpg",
-//     "8008913.jpg",
-//     "8009259.jpg",
-//     "8010678.jpg",
-//     "8013888.jpg",
-//     "8019035.jpg",
-//     "8023775.jpg",
-//     "8023850.jpg",
-//     "8024701.jpg",
-//     "81006.jpg",
-//     "81935.jpg",
-//     "85354.jpg",
-//     "86254.jpg",
-//     "92982.jpg",
-//     "93040.jpg",
-//     "VCB01.jpg",
-//     "VCB02.jpg",
-//     "VCB03.jpg",
-//     "VCB04.jpg",
-//     "VCB05.jpg",
-//     "VCB06.jpg",
-//     "VCB07.jpg",
-// ]
 const execute = async () => {
     members = await getMembers(path)
-    // const tt = members.map(x => ({ ...x, 'Avatar': image.find(i => i.split('.')[0] == x.ID) }))
-    // console.log(JSON.stringify(tt))
 }
 
 
