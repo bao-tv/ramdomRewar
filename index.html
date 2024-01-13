@@ -152,13 +152,14 @@
 </head>
 
 <body style="background-color: #ecf0f1;">
-    <header>
+    <header class="pt-3 pb-2">
         <div class="container text-center two alt-two pb-2">
-            <img style="position: absolute;left: 2rem;top: 0.5rem; max-width: 100px;" src="./resources/logo.png"
+            <img style="position: absolute;left: 2rem;top: 0.5rem; height: 80px;" src="./resources/logo.png"
                 alt="logo-PPJ-new-slogan">
-            <h1>CHƯƠNG TRINH BỐC THĂM TRÚNG THƯỞNG
-                <span>KHỐI KIỂM SOÁT-QUẢN TRỊ RỦI RO</span>
-            </h1>
+            <h2>CHƯƠNG TRÌNH</h2>
+            <h1> BỐC THĂM TRÚNG THƯỞNG</h1>
+            <div class="khoi mt-3">KHỐI KIỂM SOÁT-QUẢN TRỊ RỦI RO</div>
+            
         </div>
         <!-- <div class="container text-center">
             <div>
@@ -210,8 +211,10 @@
                 <div id="odometer" class="odometer"></div>
             </div>
 
-            <!-- <h4>CONGRATULATION TO:</h4> -->     
-            <div class="row mt-4" id="result">
+            <div class="bg-info p-3 mt-4 rounded">
+                <div class="row" id="resultName"></div>
+                <!-- <h4>CONGRATULATION TO:</h4> -->     
+                <div class="row mt-4 bg-info" id="result"></div>
             </div>
         </div>
 
@@ -274,9 +277,23 @@
         </div>
     </div>
     <script src="./scripts/odometer.js"></script>
-
+    <script src='/socket.io/socket.io.js'></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/firework.js"></script>
+    <script>
+        const socket = io("http://localhost:3009", {
+            reconnectionDelayMax: 1000,
+        });
+console.log('bao socket', socket)
+        socket.on('connect', () => {
+  console.log('Connected to server');
+});
+        // Listen for broadcasted click events from the server
+        socket.on('broadcastClickEvent', (data) => {
+          console.log('Click event received on this client:', data);
+        });
+      </script>
+      
 </body>
 
 </html>

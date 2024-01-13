@@ -76,7 +76,7 @@ const getMembers = async (dirFile) => {
 
     let rs = null;
     try {
-        const response = await fetch(dirFile)
+        const response = await fetch(dirFile);
         const json = await response.json()
         rs = json
 
@@ -137,13 +137,15 @@ const resultListElement = document.getElementById("result");
 const randomRewarded = document.getElementById("randomRewarded");
 // ================ KHUYẾN KHÍCH =================
 const option1 = document.getElementById("option1");
+const resultName = document.getElementById("resultName");
 option1.onclick = function() {
+    resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI KHUYẾN KHÍCH</div>`;
     resultListElement.innerHTML = "";
     khuyenkhich.forEach((item, index) => {
         const listItem = document.createElement("li");
-        listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
-        listItem.style.height = "75px";
-        listItem.textContent = `${index + 1}) GIẢI KHUYẾN KHÍCH: ${item.Name} - ${item.ID} - ${item.Department}`;
+        listItem.className = "d-flex justify-content-start align-items-center text-white";
+        listItem.style.fontSize = "20px";
+        listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${item.Department}`;
         const listItemWrapper = document.createElement("ul");
         listItemWrapper.className = "col-6";
         listItemWrapper.appendChild(listItem);
@@ -153,12 +155,13 @@ option1.onclick = function() {
 // ================ BA =================
 const option2 = document.getElementById("option2");
 option2.onclick = function() {
+    resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI BA</div>`;
     resultListElement.innerHTML = "";
     ba.forEach((item, index) => {
         const listItem = document.createElement("li");
-        listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
-        listItem.style.height = "75px";
-        listItem.textContent = `${index + 1}) GIẢI BA: ${item.Name} - ${item.ID} - ${item.Department}`;
+        listItem.className = "d-flex justify-content-start align-items-center text-white";
+        listItem.style.fontSize = "20px";
+        listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${item.Department}`;
         const listItemWrapper = document.createElement("ul");
         listItemWrapper.className = "col-6";
         listItemWrapper.appendChild(listItem);
@@ -168,12 +171,13 @@ option2.onclick = function() {
 // ================ NHI =================
 const option3 = document.getElementById("option3");
 option3.onclick = function() {
+    resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI NHÌ</div>`;
     resultListElement.innerHTML = "";
     nhi.forEach((item, index) => {
         const listItem = document.createElement("li");
-        listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
-        listItem.style.height = "75px";
-        listItem.textContent = `${index + 1}) GIẢI NHÌ: ${item.Name} - ${item.ID} - ${item.Department}`;
+        listItem.className = "d-flex justify-content-start align-items-center text-white";
+        listItem.style.fontSize = "20px";
+        listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${item.Department}`;
         const listItemWrapper = document.createElement("ul");
         listItemWrapper.className = "col-6";
         listItemWrapper.appendChild(listItem);
@@ -183,12 +187,13 @@ option3.onclick = function() {
 // ================ NHẤT =================
 const option4 = document.getElementById("option4");
 option4.onclick = function() {
+    resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI NHẤT</div>`;
     resultListElement.innerHTML = "";
     nhat.forEach((item, index) => {
         const listItem = document.createElement("li");
-        listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
-        listItem.style.height = "75px";
-        listItem.textContent = `${index + 1}) GIẢI NHẤT: ${item.Name} - ${item.ID} - ${item.Department}`;
+        listItem.className = "d-flex justify-content-start align-items-center text-white";
+        listItem.style.fontSize = "20px";
+        listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${item.Department}`;
         const listItemWrapper = document.createElement("ul");
         listItemWrapper.className = "col-6";
         listItemWrapper.appendChild(listItem);
@@ -198,12 +203,13 @@ option4.onclick = function() {
 // ================ ĐẶC BIỆT =================
 const option5 = document.getElementById("option5");
 option5.onclick = function() {
+    resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI ĐẶC BIỆT</div>`;
     resultListElement.innerHTML = "";
     dacbiet.forEach((item, index) => {
         const listItem = document.createElement("li");
-        listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
-        listItem.style.height = "75px";
-        listItem.textContent = `${index + 1}) GIẢI ĐẶC BIỆT: ${item.Name} - ${item.ID} - ${item.Department}`;
+        listItem.className = "d-flex justify-content-start align-items-center text-white";
+        listItem.style.fontSize = "20px";
+        listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${item.Department}`;
         const listItemWrapper = document.createElement("ul");
         listItemWrapper.className = "col-6";
         listItemWrapper.appendChild(listItem);
@@ -330,31 +336,15 @@ $(document).ready(function () {
 
     async function setReward(selectedMenber, reward) {
         REWARD_MESSAGES[indexReward].count++
-        // if(indexReward === 0) listMessage.push(khuyenkhich);
-        // if(indexReward === 1) listMessage.push(ba);
-        // if(indexReward === 2) listMessage.push(nhi);
-        // if(indexReward === 3) listMessage.push(nhat);
-        // if(indexReward === 3) listMessage.push(dacbiet);
-        // listMessage.push(`${REWARD_MESSAGES[indexReward].count}) ${REWARD_MESSAGES[indexReward].message}: ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}`)
-        // let temp = listMessage.map(x => `<li class="list-group-item list-group-item-success d-flex justify-content-start align-items-center" style="height: 75px;">${x}</li>`)
-        // var temp2 = []
-        // const chunkSize = 5;
-        // for (let i = 0; i < temp.length; i += chunkSize) {
-        //     const chunk = temp.slice(i, i + chunkSize);
-        //     temp2.push(`<div class="col-6"></ul class="list-group">${chunk.join('')}</ul></div>`)
-        // }
-        
-        // const result = `<div class="row">
-        // ${temp2.join('')}
-        // </div>`
         resultListElement.innerHTML = "";
         if(indexReward === 0) {
+            resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI KHUYẾN KHÍCH</div>`;
             khuyenkhich.push(selectedMenber);
             khuyenkhich.forEach((item, index) => {
                 const listItem = document.createElement("li");
-                listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
-                listItem.style.height = "75px";
-                listItem.textContent = `${index + 1}) GIẢI KHUYẾN KHÍCH: ${item.Name} - ${item.ID} - ${item.Department}`;
+                listItem.className = "d-flex justify-content-start align-items-center text-white";
+                listItem.style.fontSize = "20px";
+                listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${item.Department}`;
                 const listItemWrapper = document.createElement("ul");
                 listItemWrapper.className = "col-6";
                 listItemWrapper.appendChild(listItem);
@@ -364,12 +354,13 @@ $(document).ready(function () {
         console.log('khuyenkhich: ', khuyenkhich)
 
         if(indexReward === 1) {
+            resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI BA</div>`;
             ba.push(selectedMenber);
             ba.forEach((item, index) => {
                 const listItem = document.createElement("li");
-                listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
-                listItem.style.height = "75px";
-                listItem.textContent = `${index + 1}) GIẢI BA: ${item.Name} - ${item.ID} - ${item.Department}`;
+                listItem.className = "d-flex justify-content-start align-items-center text-white";
+                listItem.style.fontSize = "20px";
+                listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${item.Department}`;
                 const listItemWrapper = document.createElement("ul");
                 listItemWrapper.className = "col-6";
                 listItemWrapper.appendChild(listItem);
@@ -378,12 +369,13 @@ $(document).ready(function () {
         }
         console.log('ba: ', ba)
         if(indexReward === 2) {
+            resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI NHÌ</div>`;
             nhi.push(selectedMenber);
             nhi.forEach((item, index) => {
                 const listItem = document.createElement("li");
-                listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
-                listItem.style.height = "75px";
-                listItem.textContent = `${index + 1}) GIẢI NHÌ: ${item.Name} - ${item.ID} - ${item.Department}`;
+                listItem.className = "d-flex justify-content-start align-items-center text-white";
+                listItem.style.fontSize = "20px";
+                listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${item.Department}`;
                 const listItemWrapper = document.createElement("ul");
                 listItemWrapper.className = "col-6";
                 listItemWrapper.appendChild(listItem);
@@ -392,12 +384,13 @@ $(document).ready(function () {
         }
         console.log('nhi: ', nhi)
         if(indexReward === 3) {
+            resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI NHẤT</div>`;
             nhat.push(selectedMenber);
             nhat.forEach((item, index) => {
                 const listItem = document.createElement("li");
-                listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
-                listItem.style.height = "75px";
-                listItem.textContent = `${index + 1}) GIẢI NHẤT: ${item.Name} - ${item.ID} - ${item.Department}`;
+                listItem.className = "d-flex justify-content-start align-items-center text-white";
+                listItem.style.fontSize = "20px";
+                listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${item.Department}`;
                 const listItemWrapper = document.createElement("ul");
                 listItemWrapper.className = "col-6";
                 listItemWrapper.appendChild(listItem);
@@ -406,12 +399,13 @@ $(document).ready(function () {
         }
         console.log('nhat: ', nhat)
         if(indexReward === 4) {
+            resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI ĐẶC BIỆT</div>`;
             dacbiet.push(selectedMenber);
             dacbiet.forEach((item, index) => {
                 const listItem = document.createElement("li");
-                listItem.className = "list-group-item list-group-item-success d-flex justify-content-start align-items-center";
-                listItem.style.height = "75px";
-                listItem.textContent = `${index + 1}) GIẢI ĐẶC BIỆT: ${item.Name} - ${item.ID} - ${item.Department}`;
+                listItem.className = "d-flex justify-content-start align-items-center text-white";
+                listItem.style.fontSize = "20px";
+                listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${item.Department}`;
                 const listItemWrapper = document.createElement("ul");
                 listItemWrapper.className = "col-6";
                 listItemWrapper.appendChild(listItem);

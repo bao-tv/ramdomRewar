@@ -1,3 +1,30 @@
+header div h1, h2 {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    color: #e0eff2;
+    text-shadow: -4px 3px 0 #3a50d9, -5px 5px 0 #0a0e27;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+header div .khoi {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #c0ec5c;
+    text-shadow: -4px 3px 0 #3a50d9, -5px 5px 0 #0a0e27;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
 #modal-container .modal {
     background-color: #fff;
     border-radius: 10px;
@@ -85,7 +112,7 @@
 }
 
 .animate-charcter {
-    color: #AD0303;
+    color: #ad0403;
     text-shadow: 2px 2px #08356C;
 }
 
