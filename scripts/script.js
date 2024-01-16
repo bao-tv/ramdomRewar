@@ -132,7 +132,7 @@ const renderReward = () => {
         item.Department
       }`;
       const listItemWrapper = document.createElement("ul");
-      listItemWrapper.className = "col-6";
+      listItemWrapper.className = "col-6 mb-0";
       listItemWrapper.appendChild(listItem);
       resultListElement.appendChild(listItemWrapper);
     });
@@ -270,9 +270,14 @@ $(document).ready(function () {
     renderReward();
     console.log(REWARD);
 
-    $("#modal-text").html(
-      `Congratulations to ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}!`
-    );
+    // $("#modal-text").html(
+    //   `Congratulations to ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}!`
+    // );
+    document.getElementById('modal-text').innerHTML = `
+    <h3>Congratulations</h3>
+    <div>${selectedMenber.Name} - ${selectedMenber.ID}</div>
+    <h3>${selectedMenber.Department}</h3>
+    `
     $("#modal-p").html(`${REWARD[indexReward].message}`);
 
     const numImg = Math.floor(Math.random() * 5) + 1;
