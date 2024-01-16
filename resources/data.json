@@ -99,17 +99,20 @@
     {
         "Name": "NGUYỄN ĐỨC THUẬN",
         "ID": "8023709",
-        "Department": "Bộ phận IT"
+        "Department": "Bộ phận IT",
+        "Avatar":"image_2024_01_11T07_30_25_757Z.png"
     },
     {
         "Name": "NGUYỄN MINH TRƯỜNG",
         "ID": "114950",
-        "Department": "Bộ phận IT"
+        "Department": "Bộ phận IT",
+        "Avatar": "DSC_7499.jpg"
     },
     {
         "Name": "CAO TRẦN ĐĂNG KHOA",
         "ID": "73699",
-        "Department": "Bộ phận IT"
+        "Department": "Bộ phận IT",
+        "Avatar":"6.jpg"
     },
     {
         "Name": "HOÀNG THỊ HỒNG PHƯỢNG",
@@ -120,12 +123,14 @@
     {
         "Name": "BÙI QUANG TIẾN",
         "ID": "46854",
-        "Department": "Bộ phận IT"
+        "Department": "Bộ phận IT",
+        "Avatar": "image_2024_01_11T07_31_07_499Z.png"
     },
     {
         "Name": "NGUYỄN QUỐC HUỲNH",
         "ID": "121897",
-        "Department": "Bộ phận IT"
+        "Department": "Bộ phận IT",
+        "Avatar": "image_2024_01_11T07_28_41_371Z.png"
     },
     {
         "Name": "LƯƠNG THỊ NGỌC NGA",
@@ -136,12 +141,14 @@
     {
         "Name": "NGUYỄN KỲ PHONG",
         "ID": "74162",
-        "Department": "Bộ phận IT"
+        "Department": "Bộ phận IT",
+        "image_2024_01_11T07_30_48_103Z.png"
     },
     {
         "Name": "TRẦN VIỆT BẢO",
         "ID": "8024487",
-        "Department": "Bộ phận IT"
+        "Department": "Bộ phận IT",
+        "Avatar":"image_2024_01_11T07_30_15_205Z.png"
     },
     {
         "Name": "NGUYỄN THỊ THỦY",
@@ -158,7 +165,8 @@
     {
         "Name": "TRẦN QUỐC DƯỠNG",
         "ID": "104799",
-        "Department": "Bộ phận IT"
+        "Department": "Bộ phận IT",
+        "Avatar":"image_2024_01_11T07_29_05_342Z.png"
     },
     {
         "Name": "UNG KHƯƠNG DUY",
@@ -169,6 +177,7 @@
         "Name": "VÕ ANH KHOA",
         "ID": "81007",
         "Department": "Bộ phận IT"
+        ,"Avatar": "DSC_7460edit.jpg"
     },
     {
         "Name": "TRẦN THỊ MỸ PHỐ",
