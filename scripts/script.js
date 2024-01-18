@@ -253,7 +253,7 @@ $(document).ready(function () {
     loop = true;
     let num1 = 1;
     let num2 = 5;
-    let num3 = 8;
+    let num3 = 9;
 
     while (loop && spinNum.some((x) => x < 0)) {
       setOdometer(setStep(num1));
