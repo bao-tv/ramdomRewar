@@ -153,6 +153,8 @@ let trueNum = null;
 const resultListElement = document.getElementById("result");
 const randomRewarded = document.getElementById("randomRewarded");
 const resultName = document.getElementById("resultName");
+const modalResult = document.getElementById("modal-container");
+
 
 $(document).ready(function () {
   const rateEle = $("#rate-for-it");
@@ -186,7 +188,9 @@ $(document).ready(function () {
         }
       }
     }
-
+    if (code == 'Escape') {
+      modalResult.click()
+    }
     if (code.startsWith("Digit")) {
       e.preventDefault();
       const k = parseInt(code.slice(-1));
@@ -223,6 +227,10 @@ $(document).ready(function () {
       loop = false;
       return;
     }
+    if (isspin) {
+      return
+    }
+
     audiospin.volume = 1;
     audiospin.currentTime = 0;
     audiospin.play();
@@ -266,7 +274,7 @@ $(document).ready(function () {
     loop = true;
     let num1 = 1;
     let num2 = 5;
-    let num3 = 8;
+    let num3 = 9;
 
     while (loop && spinNum.some((x) => x < 0)) {
       setOdometer(setStep(num1));
