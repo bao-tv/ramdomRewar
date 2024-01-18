@@ -4,7 +4,7 @@
         "id": "84616",
         "department": "Bộ phận IT",
         "table": 3,
-        "allow": true,
+        "denied": true,
         "avatar": "1704937160428.JPEG"
     },
     {
@@ -12,7 +12,7 @@
         "id": "82412",
         "department": "Bộ phận IT",
         "table": 3,
-        "allow": true,
+        "denied": true,
         "avatar": "image11.jpg"
 
     },
@@ -28,14 +28,14 @@
         "id": "43160",
         "department": "Bộ phận IT",
         "table": 5,
-        "allow": true
+        "denied": true
     },
     {
         "name": "NGUYỄN VẠN HƯNG",
         "id": "72282",
         "department": "Bộ phận IT",
         "table": 5,
-        "allow": true,
+        "denied": true,
         "avatar": "image19.jpg"
 
     },
@@ -51,7 +51,7 @@
         "id": "84615",
         "department": "Bộ phận IT",
         "table": 6,
-        "allow": true,
+        "denied": true,
         "avatar": "image12.jpg"
     },
     {
@@ -166,14 +166,14 @@
         "id": "43081",
         "department": "Bộ phận Kho",
         "table": 3,
-        "allow": true
+        "denied": true
     },
     {
         "name": "UÔNG THỊ LÊ",
         "id": "42856",
         "department": "Bộ phận Kho",
         "table": 1,
-        "allow": true
+        "denied": true
     },
     {
         "name": "ĐỖ VĂN TÌNH",
@@ -192,14 +192,14 @@
         "id": "40637",
         "department": "Bộ phận Kho",
         "table": 5,
-        "allow": true
+        "denied": true
     },
     {
         "name": "TRẦN THỊ BÍCH VÂN",
         "id": "40453",
         "department": "Bộ phận Kho",
         "table": 5,
-        "allow": true
+        "denied": true
     },
     {
         "name": "NGUYỄN TUẤN LINH",
@@ -290,14 +290,14 @@
         "id": "43498",
         "department": "Phòng TCKT",
         "table": 1,
-        "allow": true
+        "denied": true
     },
     {
         "name": "NGUYỄN THỊ HOÀNG QUYÊN",
         "id": "42857",
         "department": "Phòng TCKT",
         "table": 1,
-        "allow": true
+        "denied": true
     },
     {
         "name": "TRẦN THỊ MỸ PHỐ",
@@ -316,7 +316,7 @@
         "id": "41166",
         "department": "Phòng TCKT",
         "table": 1,
-        "allow": true
+        "denied": true
     },
     {
         "name": "PHAN THỊ HẰNG",
@@ -329,7 +329,7 @@
         "id": "40311",
         "department": "Phòng TCKT",
         "table": 5,
-        "allow": true
+        "denied": true
     },
     {
         "name": "NGÔ THỊ HỒNG YẾN",
@@ -360,7 +360,7 @@
         "id": "43903",
         "department": "Phòng TCKT",
         "table": 1,
-        "allow": true
+        "denied": true
     },
     {
         "name": "ĐÀO THỊ LAN PHƯƠNG",
@@ -511,14 +511,14 @@
         "id": "40098",
         "department": "Phòng XNK",
         "table": 5,
-        "allow": true
+        "denied": true
     },
     {
         "name": "TRẦN NGUYỄN THÁI HÒA",
         "id": "40241",
         "department": "Phòng XNK",
         "table": 1,
-        "allow": true
+        "denied": true
     },
     {
         "name": "PHẠM THỊ THANH THẾ",
@@ -714,7 +714,7 @@
         "id": "VCB01",
         "department": "Khách mời",
         "table": 1,
-        "allow": false,
+        "rejectAwardSpec": true,
         "avatar": "VCB01.jpg"
     },
     {
@@ -722,7 +722,7 @@
         "id": "VCB02",
         "department": "Khách mời",
         "table": 4,
-        "allow": false,
+        "rejectAwardSpec": true,
         "avatar": "VCB02.jpg"
     },
     {
@@ -730,7 +730,7 @@
         "id": "VCB03",
         "department": "Khách mời",
         "table": 4,
-        "allow": false,
+        "rejectAwardSpec": true,
         "avatar": "VCB03.jpg"
     },
     {
@@ -738,7 +738,7 @@
         "id": "VCB04",
         "department": "Khách mời",
         "table": 1,
-        "allow": false,
+        "rejectAwardSpec": true,
         "avatar": "VCB04.jpg"
     },
     {
@@ -746,7 +746,7 @@
         "id": "VCB05",
         "department": "Khách mời",
         "table": 4,
-        "allow": false,
+        "rejectAwardSpec": true,
         "avatar": "VCB05.jpg"
     },
     {
@@ -754,7 +754,7 @@
         "id": "VCB06",
         "department": "Khách mời",
         "table": 4,
-        "allow": false,
+        "rejectAwardSpec": true,
         "avatar": "VCB06.jpg"
     },
     {
@@ -762,7 +762,7 @@
         "id": "VCB07",
         "department": "Khách mời",
         "table": 1,
-        "allow": false,
+        "rejectAwardSpec": true,
         "avatar": "VCB07.jpg"
     },
     {
@@ -770,6 +770,6 @@
         "id": "VCB08",
         "department": "Khách mời",
         "table": 4,
-        "allow": false
+        "rejectAwardSpec": true
     }
 ]

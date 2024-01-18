@@ -22,7 +22,9 @@ const REWARD = [
 let indexReward = 0;
 
 let members = [];
+let guestMenberList = [];
 let rewardedMenberList = [];
+let rewardedGuestList = [];
 
 const el = document.getElementById("odometer"); //.innerHTML = Math.floor(Math.random() * 1000) + 1;
 const od = new Odometer({
@@ -75,20 +77,28 @@ const getMembers = async (dirFile) => {
 const selectRandomMember = async (
   candidates,
   rewardedMenberList,
-  ratioForIT
+  // ratioForIT,
+  indexReward,
 ) => {
   let { rate, department, id } = await fetchApi();
+  console.log(id)
 
   candidates = candidates.filter((c) => !rewardedMenberList.includes(c));
   const totalMenbers = candidates.length;
-
+  let totalGuestNoReward = 0;
+  
+  if(indexReward > 1) {
+    candidates = candidates.filter(item => !item.rejectAwardSpec);
+    totalGuestNoReward = 8 - rewardedGuestList.length;
+  }
+  // console.log('bao candidates spec: ', candidates)
   const itMenbersArray =
     id == "0"
       ? candidates.filter((c) => c.department === department)
       : candidates.filter((value) => {
         return value.id == id;
       });
-
+      // console.log('bao itMenbersArray: ', itMenbersArray)
   const menbersInDept = itMenbersArray.length;
 
   if (department == "all") {
@@ -100,14 +110,14 @@ const selectRandomMember = async (
     await fetch(`https://lottery.ginjs.click/id/0`);
   }
 
-  const numOfMenbersInDept = totalMenbers - menbersInDept;
+  const numOfMenbersInDept = totalMenbers - menbersInDept - totalGuestNoReward;
 
   const NonDeptMenbersArray = candidates.filter(
     (c) => c.department !== department
   );
 
   const nonITMenbersIndex = Math.floor(Math.random() * numOfMenbersInDept);
-  const selectedNonDeptMenber = NonDeptMenbersArray[nonITMenbersIndex];
+  const selectedNonDeptMenber = candidates[nonITMenbersIndex];
 
   if (Math.random() < rate && menbersInDept > 0) {
     const itMenbersIndex = Math.floor(Math.random() * menbersInDept);
@@ -220,13 +230,16 @@ $(document).ready(function () {
 
     const selectedMenber = await selectRandomMember(
       members,
-      rewardedMenberList
+      rewardedMenberList,
+      indexReward,
     );
     const num = selectedMenber.id.replace(/[A-Za-z]+/, "");
     trueNum = [...num.toString().padStart(7, "0")];
     trueNum.sort();
     spinNum = trueNum.map((x) => -1);
     rewardedMenberList.push(selectedMenber);
+    if(selectedMenber.rejectAwardSpec) rewardedGuestList.push(selectedMenber);
+    // console.log('bao guestMenberList: ', rewardedGuestList);
 
     await loopSpinning();
 
@@ -273,7 +286,6 @@ $(document).ready(function () {
     REWARD[indexReward].rewardedMenberList.push(selectedMenber);
     resultListElement.innerHTML = "";
     renderReward();
-    console.log(REWARD);
 
     // $("#modal-text").html(
     //   `Congratulations to ${selectedMenber.name} - ${selectedMenber.id} - ${selectedMenber.department}!`
@@ -305,6 +317,8 @@ $(document).ready(function () {
 
 const execute = async () => {
   members = await getMembers(path);
+  guestMenberList = members.filter(item => item.rejectAwardSpec);
+  // console.log(guestMenberList)
 
   //   var t = `111125.jpeg	120960.jpg	43455.jpg	8010678.jpg	92982.jpg
   // 111125.jpg	120980.jpg	44690.jpeg	8013888.jpg	93040.jpg
