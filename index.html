@@ -148,16 +148,12 @@
     <header class="pt-3 pb-2">
         <div class="container-fluid text-center two alt-two pb-2">
             <div class="row">
-                <div class="col-3">
-                    <img style="position: absolute;left: 2rem;top: 0.5rem; height: 80px;" src="./resources/logo.png"
+                <div class="col">
+                    <img style="position: absolute;left: 2rem;top: 0.5rem; height: 50px;" src="./resources/logo.png"
                         alt="logo-PPJ-new-slogan">
-                </div>
-                <div class="col-9">
-                    <!-- <h2>CHƯƠNG TRÌNH BỐC THĂM TRÚNG THƯỞNG</h2> -->
                     <h1>CHƯƠNG TRÌNH BỐC THĂM TRÚNG THƯỞNG</h1>
                     <div class="khoi mt-3">KHỐI QUẢN TRị TÀI CHÍNH - KIỂM SOÁT RỦI RO</div>
                 </div>
-
             </div>
             
         </div>
@@ -236,14 +232,21 @@
                     id="phaohoaBtn"
                     >
                     Pháo hoa
-                </button>
-                <button type="button"
-                class="btn btn-outline-dark"
-                data-toggle="modal"
-                data-target="#bd-example-modal-result-sm"
-                id="summary">
-                Kết quả cuối
-                </button>
+                    </button>
+                    <button type="button"
+                    class="btn btn-outline-dark mr-2"
+                    data-toggle="modal"
+                    data-target="#bd-example-modal-result-sm"
+                    id="summaryReward">
+                    Danh sách trúng giải
+                    </button>
+                    <button type="button"
+                    class="btn btn-outline-dark"
+                    data-toggle="modal"
+                    data-target="#bd-example-modal-result-sm"
+                    id="summaryNoReward">
+                    Danh sách không trúng giải
+                    </button>
                 </div>
             </div>
             <div 
@@ -267,33 +270,6 @@
         </div>
     </main>
     <div id="modal-container">
-        <!-- <div class="js-container container modal-background" style="top:0px !important;">
-            <div class="modal" id="bg-modal1">
-                <div id="modal-text">chúc mừng</div>
-                <div class="row d-flex justify-content-between m-3">
-                    <div class="col-3 d-flex justify-content-between">
-                        <img id="img-left" src="./resources/cat3.gif"
-                            class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt="fatcat">
-                        </div>
-                        <div class="pyro"><div class="before"></div><div class="after"></div></div>
-                    <div class="col-6 d-flex justify-content-between">
-                        <div class="rounded-circle overflow-hidden m-auto" style="height: 400px; width: 400px;">
-                            <img id="avatar" src="./resources/congrats.gif"
-                                class="img-fluid w-100 h-100 object-fit-cover"
-                                style="object-fit: cover !important;"
-                                onerror="this.onerror=null;this.src='./resources/congrats.gif';" alt="congrasts">
-                        </div>
-                    </div>
-                    <div class="col-3 d-flex justify-content-between">
-                        <img id="img-right" src="./resources/cat5.gif"
-                            class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt="cat">
-                    </div>
-                </div>
-                <h1 id="modal-p" class="display-3 font-weight-bold animate-charcter">Giải</h2>
-            </div>
-        </div> -->
         <div class="js-container container modal-background" style="top:0px !important;">
             <div class="modal" id="bg-modal1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-content bg-transparent border-0" id="bg-modal1-modal-content">
@@ -325,7 +301,7 @@
                     </div>
                     <div class="modal-footer justify-content-center">
                         <h1 id="modal-p" class="display-3 font-weight-bold animate-charcter">Giải</h2>
-                        <button type="button" id="reject-modal-bg-modal1" class="btn btn-primary" data-dismiss="modal">CHÊ</button>
+                        <button type="button" id="reject-modal-bg-modal1" class="btn btn-primary" data-dismiss="modal">CHÊ GIẢI</button>
                         <button type="button" id="close-modal-bg-modal1" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -356,6 +332,9 @@
     </div>
 
     <div class="modal fade" id="bd-example-modal-result-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+    </div>
+    <div class="modal fade" id="bd-example-modal-result-sm-no-reward" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
         aria-hidden="true">
     </div>
     <div class="container" id="modal-phao-hoa">

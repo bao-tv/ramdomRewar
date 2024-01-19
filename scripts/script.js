@@ -19,8 +19,8 @@ let isWaitEveryDigit = false;
 let indexReward = 0;
 
 let members = [];
-let rewardedMenberList = [];
-
+let rewardedMenberListAttachReject = [];
+let listMenberNoRewardAndNoReject = [];
 
 const resultListElement = document.getElementById("result");
 const randomRewarded = document.getElementById("randomRewarded");
@@ -89,12 +89,17 @@ const getMembers = async (dirFile) => {
 const selectRandomMember = async (candidates) => {
   let { rate, department, id } = await fetchApi();
   console.log(id)
-
-  candidates = candidates.filter((c) =>
-    !rewardedMenberList.includes(c) &&
-    (!c.deny || c.department === 'Khách mời') &&
-    (indexReward <= 1 || c.department === 'Khách mời')
-  );
+  if(indexReward<=1) {
+    candidates = candidates.filter((c) =>
+      !rewardedMenberListAttachReject.includes(c) &&
+      (!c.deny || c.department === 'Khách mời')
+    );
+  } else {
+    candidates = candidates.filter((c) =>
+      !rewardedMenberListAttachReject.includes(c) &&
+      !c.deny && c.department !== 'Khách mời'
+    );
+  }
 
   const totalMenbers = candidates.length;
 
@@ -141,7 +146,7 @@ const renderReward = () => {
     listItem.className =
       "d-flex justify-content-start align-items-center text-white";
     listItem.style.fontSize = "20px";
-    listItem.textContent = `${index + 1}) ${item.name} - ${item.id} - ${item.department}`;
+    listItem.textContent = `${index + 1}) ${item.name} - ${item.id} - ${item.department}${item.isReject ? '- (CHÊ GIẢI)' : ''}`;
     const listItemWrapper = document.createElement("ul");
     listItemWrapper.className = "col-6 mb-0";
     listItemWrapper.appendChild(listItem);
@@ -191,31 +196,6 @@ $(document).ready(function () {
     if (code == 'Escape') {
       modalResult.click()
     }
-    // if (code.startsWith("Digit")) {
-    //   e.preventDefault();
-    //   if (isWaitEveryDigit) {
-    //     return
-    //   }
-    //   const k = parseInt(code.slice(-1));
-
-    //   if (k < 6) {
-    //     $(`#option-reward input#option${k}`).trigger("click");
-    //   }
-
-
-
-    // }
-  });
-
-  $("#modal-container").click(function () {
-    $(this).addClass("out");
-    $("body").removeClass("modal-active");
-    congratsAudio.pause();
-    stopConfetti();
-    isspin = false
-    randomRewarded.className = 'btn btn-success'
-    $("#avatar").attr("src", 'resources/congrats.gif');
-
   });
 
   $("#option-reward input").click(function () {
@@ -246,7 +226,7 @@ $(document).ready(function () {
 
     const selectedMenber = await selectRandomMember(members);
     const num = selectedMenber.id.replace(/[A-Za-z]+/, "");
-    rewardedMenberList.push(selectedMenber);
+    rewardedMenberListAttachReject.push(selectedMenber);
     trueNum = [...num.toString().padStart(7, "0")];
     trueNum.sort();
     spinNum = trueNum.map((x) => -1);
@@ -268,8 +248,33 @@ $(document).ready(function () {
     } else {
       audiospin.pause();
     }
-
     setReward(selectedMenber);
+    document.getElementById("close-modal-bg-modal1").onclick = () => {
+      $("#modal-container").addClass("out");
+      $("body").removeClass("modal-active");
+      congratsAudio.pause();
+      stopConfetti();
+      isspin = false
+      randomRewarded.className = 'btn btn-success'
+      $("#avatar").attr("src", 'resources/congrats.gif');
+      REWARD[indexReward].count++;
+      REWARD[indexReward].rewardedMenberList.push(selectedMenber);
+      resultListElement.innerHTML = "";
+      renderReward();
+    }
+    document.getElementById("reject-modal-bg-modal1").onclick = () => {
+      $("#modal-container").addClass("out");
+      $("body").removeClass("modal-active");
+      congratsAudio.pause();
+      stopConfetti();
+      isspin = false
+      randomRewarded.className = 'btn btn-success'
+      $("#avatar").attr("src", 'resources/congrats.gif');
+      REWARD[indexReward].count++;
+      REWARD[indexReward].rewardedMenberList.push({...selectedMenber, isReject: true});
+      resultListElement.innerHTML = "";
+      renderReward();
+    }
   });
 
   async function loopSpinning() {
@@ -292,10 +297,8 @@ $(document).ready(function () {
   }
 
   async function setReward(selectedMenber) {
-    REWARD[indexReward].count++;
-    REWARD[indexReward].rewardedMenberList.push(selectedMenber);
-    resultListElement.innerHTML = "";
-    renderReward();
+    // REWARD[indexReward].count++;
+    // REWARD[indexReward].rewardedMenberList.push(selectedMenber);
 
     // $("#modal-text").html(
     //   `Congratulations to ${selectedMenber.name} - ${selectedMenber.id} - ${selectedMenber.department}!`
@@ -327,41 +330,35 @@ $(document).ready(function () {
 
 const execute = async () => {
   members = await getMembers(path);
-
-  //   var t = `image2/5987.jpg image2/9016.jpg image2/40174.jpg image2/40311.jpg image2/40312.jpg image2/40453.jpg image2/40637.jpg image2/40720.jpg image2/40757.jpg image2/41166.jpg image2/41179.jpg image2/41554.jpg image2/42562.jpg image2/42623.jpg image2/42856.jpg image2/43081.jpg image2/43282.jpg image2/43455.jpg image2/43903.jpg image2/44526.jpg image2/44665.jpg image2/44690.jpeg image2/44708.jpg image2/45425.jpg image2/45544.jpg image2/45765.jpg image2/46102.jpg image2/46798.jpg image2/46854.png image2/46995.jpg image2/47060.jpg image2/47886.jpg image2/48795.jpg image2/48796.jpg image2/50487.jpg image2/73657.jpg image2/74162.png image2/77183.jpg image2/77900.jpg image2/80248.jpg image2/80294.jpg image2/81006.jpg image2/81860.jpg image2/81935.jpg image2/82605.jpg image2/83172.jpg image2/83742.jpg image2/83847.jpg image2/85354.jpg image2/86254.jpg image2/89482.jpg image2/91781.jpg image2/92135.jpg image2/92982.jpg image2/93040.jpg image2/96523.jpg image2/98038.jpg image2/104799.png image2/105358.jpg image2/110459.jpg image2/111125.jpeg image2/111127.png image2/114671.jpg image2/114950.jpg image2/117499.jpg image2/117934.jpg image2/117977.jpg image2/118478.png image2/119102.jpg image2/120700.jpg image2/120941.jpg image2/120960.jpg image2/120980.jpg image2/121246.jpg image2/121487.jpg image2/121488.JPEG image2/121897.png image2/122077.jpg image2/122560.jpg image2/8005611.jpg image2/8007981.jpg image2/8008489.jpg image2/8008913.jpg image2/8009259.jpg image2/8010678.jpg image2/8013888.jpg image2/8019035.jpg image2/8019889.jpg image2/8019902.jpg image2/8022825.jpg image2/8023709.png image2/8023775.jpg image2/8023850.jpg image2/8024487.png image2/8024701.jpg image2/TTS021123.jpg image2/VCB01.jpg image2/VCB02.jpg image2/VCB03.jpg image2/VCB04.jpg image2/VCB05.jpg image2/VCB06.jpg image2/VCB07.jpg image2/VCB08.jpg
-  // `
-  //   members2 = await getMembers('./resources/data2.json')
-  //   var tt = t.split(/\s|\n/).map(x => ({ id: x.split(/\/|\./)[1], path: x.replace('image2/','') }))
-
-
-  //   members2 = members2.map(x => ({ ...x, avatar: members.filter(m=>m.id==x.id)[0]?.Avatar || tt.filter(t => t.id == x.id)[0]?.path }))
-
-  // const members2 = members.filter(x => !x.avatar).map(x=>x.name+' - '+x.id+' - '+x.department)
-  // console.log(JSON.stringify(members2))
 };
 
 execute();
 
-const summaryButton = document.getElementById("summary");
+const summaryRewardBtn = document.getElementById("summaryReward");
 const modalTableResult = document.getElementById("bd-example-modal-result-sm")
-if (summaryButton) {
-  summaryButton.addEventListener("click", () => {
-    const rewardedRows = (listPer) => listPer.map((per, index) => {
-      return (
-        `<tr>
-                  <th scope="row">${index + 1}</th>
-                  <td>${per.name}</td>
-                  <td>${per.id}</td>
-                  <td>${per.department}</td>
-              </tr>`
-      );
-    });
+if (summaryRewardBtn) {
+  summaryRewardBtn.addEventListener("click", () => {
+    const rewardedRows = (listPer) => {
+      listPer = listPer.filter(item => !item.isReject)
+      console.log(listPer)
+      return listPer?.map((per, index) => {
+        return (
+          `<tr>
+                    <th scope="row">${index + 1}</th>
+                    <td>${per.name}</td>
+                    <td>${per.id}</td>
+                    <td>${per.department}</td>
+                </tr>`
+        );
+      });
+    }
     const contentModal = REWARD.map((item, index) => {
+      // console.log(rewardedRows(item.rewardedMenberList))
       return (`<tr class = "${item.spec ? "bg-danger" : "bg-info"} text-light ">
                     <th colspan="4">${item.message}</th>
                 </tr>
-                ${rewardedRows(item.rewardedMenberList).join('')}
-            `
+                  ${rewardedRows(item.rewardedMenberList).join('')}
+                `
       )
     });
     modalTableResult.innerHTML = `
@@ -394,6 +391,57 @@ if (summaryButton) {
 
   });
 }
+
+
+const summaryNoReward = document.getElementById("summaryNoReward");
+const modalTableResultNoReward = document.getElementById("bd-example-modal-result-sm-no-reward")
+if (summaryNoReward) {
+  summaryNoReward.addEventListener("click", () => {
+    const menberNoReward = members.filter(c => !rewardedMenberListAttachReject.includes(c))
+    console.log('bao menberNoReward: ', menberNoReward)
+    const noRewardedRows = () => {
+      return menberNoReward?.map((per, index) => {
+        return (
+          `<tr>
+                    <th scope="row">${index + 1}</th>
+                    <td>${per.name}</td>
+                    <td>${per.id}</td>
+                    <td>${per.department}</td>
+                </tr>`
+        );
+      });
+    }
+    modalTableResult.innerHTML = `
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0 bg-warning">
+                    <h5 class="modal-title w-100 d-flex justify-content-center font-weight-bold text-danger " style="font-size: 30px" id="exampleModalLabel">KẾT QUẢ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pt-0">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th class="border-top-0" scope="col">#</th>
+                            <th class="border-top-0" scope="col">Họ và tên</th>
+                            <th class="border-top-0" scope="col">Mã số nhân viên</th>
+                            <th class="border-top-0" scope="col">Phòng</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            ${noRewardedRows().join('')}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    `
+
+  });
+}
+
 
 
 
