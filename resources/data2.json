@@ -4,140 +4,125 @@
         "id": "84616",
         "department": "Bộ phận IT",
         "table": 3,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "TRƯƠNG QUỐC HÙNG",
         "id": "82412",
         "department": "Bộ phận IT",
         "table": 3,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "BÙI QUANG TIẾN",
         "id": "46854",
         "department": "Bộ phận IT",
-        "table": 5,
-        "avatar": "image_2024_01_11T07_31_07_499Z.png"
+        "table": 5
     },
     {
         "name": "NGUYỄN THỊ BÍCH HẠNH",
         "id": "43160",
         "department": "Bộ phận IT",
         "table": 5,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "NGUYỄN VẠN HƯNG",
         "id": "72282",
         "department": "Bộ phận IT",
         "table": 5,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "NGUYỄN MINH TRƯỜNG",
         "id": "114950",
         "department": "Bộ phận IT",
-        "table": 6,
-        "avatar": "DSC_7499.jpg"
+        "table": 6
     },
     {
         "name": "VÕ NGỌC TÂN",
         "id": "84615",
         "department": "Bộ phận IT",
         "table": 6,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "LÊ MINH HẰNG",
         "id": "118478",
         "department": "Bộ phận IT",
-        "table": 7,
-        "avatar": "118478.jpg"
+        "table": 7
     },
     {
         "name": "HOÀNG THỊ HỒNG PHƯỢNG",
         "id": "111125",
         "department": "Bộ phận IT",
-        "table": 7,
-        "avatar": "111125.jpeg"
+        "table": 7
     },
     {
         "name": "NGUYỄN THỊ THỦY",
         "id": "8023850",
         "department": "Bộ phận IT",
-        "table": 7,
-        "avatar": "8023850.jpg"
+        "table": 7
     },
     {
         "name": "NGUYỄN THỊ THU THỦY",
         "id": "111127",
         "department": "Bộ phận IT",
-        "table": 8,
-        "avatar": "111127.png"
+        "table": 8
     },
     {
         "name": "TRẦN THỊ THANH NGA",
         "id": "44690",
         "department": "Bộ phận IT",
-        "table": 8,
-        "avatar": "44690.jpeg"
+        "table": 8
     },
     {
         "name": "LƯƠNG THỊ NGỌC NGA",
         "id": "121488",
         "department": "Bộ phận IT",
-        "table": 8,
-        "avatar": "121488.JPEG"
+        "table": 8
     },
     {
         "name": "NGUYỄN KỲ PHONG",
         "id": "74162",
         "department": "Bộ phận IT",
-        "table": 9,
-        "avatar": "image_2024_01_11T07_30_48_103Z.png"
+        "table": 9
     },
     {
         "name": "TRẦN VIỆT BẢO",
         "id": "8024487",
         "department": "Bộ phận IT",
-        "table": 9,
-        "avatar": "image_2024_01_11T07_30_15_205Z.png"
+        "table": 9
     },
     {
         "name": "VÕ ANH KHOA",
         "id": "81007",
         "department": "Bộ phận IT",
-        "table": 9,
-        "avatar": "DSC_7460edit.jpg"
+        "table": 9
     },
     {
         "name": "NGUYỄN ĐỨC THUẬN",
         "id": "8023709",
         "department": "Bộ phận IT",
-        "table": 10,
-        "avatar": "image_2024_01_11T07_30_25_757Z.png"
+        "table": 10
     },
     {
         "name": "CAO TRẦN ĐĂNG KHOA",
         "id": "73699",
         "department": "Bộ phận IT",
-        "table": 10,
-        "avatar": "6.jpg"
+        "table": 10
     },
     {
         "name": "NGUYỄN QUỐC HUỲNH",
         "id": "121897",
         "department": "Bộ phận IT",
-        "table": 11,
-        "avatar": "image_2024_01_11T07_28_41_371Z.png"
+        "table": 11
     },
     {
         "name": "TRẦN QUỐC DƯỠNG",
         "id": "104799",
         "department": "Bộ phận IT",
-        "table": 11,
-        "avatar": "image_2024_01_11T07_29_05_342Z.png"
+        "table": 11
     },
     {
         "name": "NGUYỄN QUỐC DŨNG",
@@ -156,14 +141,14 @@
         "id": "43081",
         "department": "Bộ phận Kho",
         "table": 3,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "UÔNG THỊ LÊ",
         "id": "42856",
         "department": "Bộ phận Kho",
         "table": 1,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "ĐỖ VĂN TÌNH",
@@ -182,14 +167,14 @@
         "id": "40637",
         "department": "Bộ phận Kho",
         "table": 5,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "TRẦN THỊ BÍCH VÂN",
         "id": "40453",
         "department": "Bộ phận Kho",
         "table": 5,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "NGUYỄN TUẤN LINH",
@@ -280,14 +265,14 @@
         "id": "43498",
         "department": "Phòng TCKT",
         "table": 1,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "NGUYỄN THỊ HOÀNG QUYÊN",
         "id": "42857",
         "department": "Phòng TCKT",
         "table": 1,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "TRẦN THỊ MỸ PHỐ",
@@ -306,7 +291,7 @@
         "id": "41166",
         "department": "Phòng TCKT",
         "table": 1,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "PHAN THỊ HẰNG",
@@ -319,7 +304,7 @@
         "id": "40311",
         "department": "Phòng TCKT",
         "table": 5,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "NGÔ THỊ HỒNG YẾN",
@@ -350,7 +335,7 @@
         "id": "43903",
         "department": "Phòng TCKT",
         "table": 1,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "ĐÀO THỊ LAN PHƯƠNG",
@@ -455,355 +440,284 @@
         "table": 13
     },
     {
+        "name": "NGUYỄN THỊ THU PHƯƠNG",
+        "id": "9016",
+        "department": "Phòng TCKT",
+        "table": 13
+    },
+    {
+        "name": "NGUYỄN HỒNG TIÊN",
+        "id": "TTS021123",
+        "department": "Phòng TCKT",
+        "table": 13,
+        "deny": "Luôn nằm trong danh sách không có giải"
+    },
+    {
         "name": "NGUYỄN THỊ HIỀN",
         "id": "81006",
         "department": "Phòng XNK",
-        "table": 3,
-        "avatar": "81006.jpg"
+        "table": 3
     },
     {
         "name": "TRƯƠNG HOÀI NGỌC CHÂU",
         "id": "41179",
         "department": "Phòng XNK",
-        "table": 3,
-        "avatar": "41179.jpg"
+        "table": 3
     },
     {
         "name": "PHAN THỊ NA",
         "id": "73657",
         "department": "Phòng XNK",
-        "table": 6,
-        "avatar": "73657.jpg"
+        "table": 6
     },
     {
         "name": "ĐỖ THU UYÊN",
         "id": "8010678",
         "department": "Phòng XNK",
-        "table": 12,
-        "avatar": "8010678.jpg"
+        "table": 12
     },
     {
         "name": "NGUYỄN VĂN SƠN",
         "id": "120960",
         "department": "Phòng XNK",
-        "table": 9,
-        "avatar": "120960.jpg"
+        "table": 9
     },
     {
         "name": "LÊ THỊ THANH QUYÊN",
         "id": "45544",
         "department": "Phòng XNK",
-        "table": 4,
-        "avatar": "45544.jpg"
+        "table": 4
     },
     {
         "name": "NGUYỄN QUỐC DŨNG",
         "id": "40098",
         "department": "Phòng XNK",
         "table": 5,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "TRẦN NGUYỄN THÁI HÒA",
         "id": "40241",
         "department": "Phòng XNK",
         "table": 1,
-        "allow": true
+        "deny": "Luôn nằm trong danh sách không có giải"
     },
     {
         "name": "PHẠM THỊ THANH THẾ",
         "id": "85354",
         "department": "Phòng XNK",
-        "table": 5,
-        "avatar": "85354.jpg"
+        "table": 5
     },
     {
         "name": "LƯƠNG THỊ CHUNG",
         "id": "120700",
         "department": "Phòng XNK",
-        "table": 6,
-        "avatar": "120700.jpg"
+        "table": 6
     },
     {
         "name": "NGUYỄN NGỌC VÂN ANH",
         "id": "81935",
         "department": "Phòng XNK",
-        "table": 4,
-        "avatar": "81935.jpg"
+        "table": 4
     },
     {
         "name": "PHAN THỊ THU VÂN",
         "id": "117934",
         "department": "Phòng XNK",
-        "table": 7,
-        "avatar": "117934.jpg"
+        "table": 7
     },
     {
         "name": "PHẠM THỊ MINH HUYỀN",
         "id": "120980",
         "department": "Phòng XNK",
-        "table": 7,
-        "avatar": "120980.jpg"
+        "table": 7
     },
     {
         "name": "MAI THỊ KIM NGÂN",
         "id": "121487",
         "department": "Phòng XNK",
-        "table": 7,
-        "avatar": "121487.jpg"
+        "table": 7
     },
     {
         "name": "DƯƠNG THANH TUẤN",
         "id": "45425",
         "department": "Phòng XNK",
-        "table": 6,
-        "avatar": "45425.jpg"
+        "table": 6
     },
     {
         "name": "TRẦN QUANG THÀNH",
         "id": "40174",
         "department": "Phòng XNK",
-        "table": 8,
-        "avatar": "40174.jpg"
+        "table": 8
     },
     {
         "name": "PHAN THANH KHIẾT",
         "id": "43455",
         "department": "Phòng XNK",
-        "table": 8,
-        "avatar": "43455.jpg"
+        "table": 8
     },
     {
         "name": "NGUYỄN MINH PHƯỚC",
         "id": "40720",
         "department": "Phòng XNK",
-        "table": 8,
-        "avatar": "40720.jpg"
+        "table": 8
     },
     {
         "name": "NGUYỄN VĂN HỮU PHƯỚC",
         "id": "93040",
         "department": "Phòng XNK",
-        "table": 4,
-        "avatar": "93040.jpg"
+        "table": 4
     },
     {
         "name": "PHẠM THỊ NGỌC PHƯƠNG",
         "id": "8008913",
         "department": "Phòng XNK",
-        "table": 9,
-        "avatar": "8008913.jpg"
+        "table": 9
     },
     {
         "name": "PHẠM THỊ XUÂN MY",
         "id": "8023775",
         "department": "Phòng XNK",
-        "table": 9,
-        "avatar": "8023775.jpg"
+        "table": 9
     },
     {
         "name": "TRẦN THỊ DIỆU HIỀN",
         "id": "122077",
         "department": "Phòng XNK",
-        "table": 10,
-        "avatar": "122077.jpg"
+        "table": 10
     },
     {
         "name": "NGUYỄN THỊ KIM CHI",
         "id": "8013888",
         "department": "Phòng XNK",
-        "table": 10,
-        "avatar": "8013888.jpg"
+        "table": 10
     },
     {
         "name": "MẠCH THỊ MI",
         "id": "8024701",
         "department": "Phòng XNK",
-        "table": 10,
-        "avatar": "8024701.jpg"
+        "table": 10
     },
     {
         "name": "TRẦN ĐÀO THU THANH",
         "id": "8019035",
         "department": "Phòng XNK",
-        "table": 11,
-        "avatar": "8019035.jpg"
+        "table": 11
     },
     {
         "name": "LÊ THỊ NGỌC LINH",
         "id": "119102",
         "department": "Phòng XNK",
-        "table": 11,
-        "avatar": "119102.jpg"
+        "table": 11
     },
     {
         "name": "LÊ THỊ HỒNG",
         "id": "46798",
         "department": "Phòng XNK",
-        "table": 11,
-        "avatar": "46798.jpg"
+        "table": 11
     },
     {
         "name": "PHAN THỊ VĨNH TOÀN",
         "id": "117499",
         "department": "Phòng XNK",
-        "table": 12,
-        "avatar": "117499.jpg"
+        "table": 12
     },
     {
         "name": "HOÀNG NGUYỄN TỐ NHƯ",
         "id": "8009259",
         "department": "Phòng XNK",
-        "table": 12,
-        "avatar": "8009259.jpg"
+        "table": 12
     },
     {
         "name": "ĐINH MINH ĐĂNG",
         "id": "8008489",
         "department": "Phòng XNK",
-        "table": 12,
-        "avatar": "8008489.jpg"
+        "table": 12
     },
     {
         "name": "NGÔ THỊ MAI HƯƠNG",
         "id": "114671",
         "department": "Phòng XNK",
-        "table": 12,
-        "avatar": "114671.jpg"
+        "table": 12
     },
     {
         "name": "ĐẶNG THỊ HỒNG UYÊN",
         "id": "121246",
         "department": "Phòng XNK",
-        "table": 4,
-        "avatar": "121246.jpg"
+        "table": 4
     },
     {
         "name": "ĐOÀN NGUYỄN NGỌC ANH",
         "id": "92982",
         "department": "Phòng XNK",
-        "table": 13,
-        "avatar": "92982.jpg"
+        "table": 13
     },
     {
         "name": "ĐÀO THỊ DIỄM THẮM",
         "id": "44708",
         "department": "Phòng XNK",
-        "table": 13,
-        "avatar": "44708.jpg"
+        "table": 13
     },
     {
         "name": "TÔ KHẮC THIÊN",
         "id": "86254",
         "department": "Phòng XNK",
-        "table": 13,
-        "avatar": "86254.jpg"
+        "table": 13
     },
     {
-        "name": "Chị Nguyễn Thúy Phượng",
+        "name": "Nguyễn Thúy Phượng",
         "id": "VCB01",
         "department": "Khách mời",
         "table": 1,
-        "allow": false,
-        "avatar": "VCB01.jpg"
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba"
     },
     {
-        "name": "Chị Nguyễn Nhật Quang",
+        "name": "Nguyễn Nhật Quang",
         "id": "VCB02",
         "department": "Khách mời",
         "table": 4,
-        "allow": false,
-        "avatar": "VCB02.jpg"
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba"
     },
     {
-        "name": "Chị Dương Nguyễn Trúc Nhi",
+        "name": "Dương Nguyễn Trúc Nhi",
         "id": "VCB03",
         "department": "Khách mời",
         "table": 4,
-        "allow": false,
-        "avatar": "VCB03.jpg"
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba"
     },
     {
-        "name": "Anh Trần Chánh Trực",
+        "name": "Trần Chánh Trực",
         "id": "VCB04",
         "department": "Khách mời",
         "table": 1,
-        "allow": false,
-        "avatar": "VCB04.jpg"
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba"
     },
     {
-        "name": "Anh Hà Mạnh Linh",
+        "name": "Hà Mạnh Linh",
         "id": "VCB05",
         "department": "Khách mời",
         "table": 4,
-        "allow": false,
-        "avatar": "VCB05.jpg"
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba"
     },
     {
-        "name": "Anh Trần Trúc Phương",
+        "name": "Trần Trúc Phương",
         "id": "VCB06",
         "department": "Khách mời",
         "table": 4,
-        "allow": false,
-        "avatar": "VCB06.jpg"
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba"
     },
     {
-        "name": "Anh Cao Tất Thắng",
+        "name": "Cao Tất Thắng",
         "id": "VCB07",
         "department": "Khách mời",
         "table": 1,
-        "allow": false,
-        "avatar": "VCB07.jpg"
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba"
     },
     {
-        "name": "Chị Vũ Thị Thanh Tâm",
+        "name": "Vũ Thị Thanh Tâm",
         "id": "VCB08",
         "department": "Khách mời",
         "table": 4,
-        "allow": false
-    }
-
-    ,
-    {
-        "Name": "CHỊ NGUYỄN THÚY PHƯỢNG",
-        "ID": "VCB01",
-        "Department": "Khách mời",
-        "Avatar": "VCB01.jpg"
-    },
-    {
-        "Name": "CHỊ NGUYỄN NHẬT QUANG",
-        "ID": "VCB02",
-        "Department": "Khách mời",
-        "Avatar": "VCB02.jpg"
-    },
-    {
-        "Name": "CHỊ DƯƠNG NGUYỄN TRÚC NHI",
-        "ID": "VCB03",
-        "Department": "Khách mời",
-        "Avatar": "VCB03.jpg"
-    },
-    {
-        "Name": "ANH TRẦN CHÁNH TRỰC",
-        "ID": "VCB04",
-        "Department": "Khách mời",
-        "Avatar": "VCB04.jpg"
-    },
-    {
-        "Name": "ANH HÀ MẠNH LINH",
-        "ID": "VCB05",
-        "Department": "Khách mời",
-        "Avatar": "VCB05.jpg"
-    },
-    {
-        "Name": "ANH TRẦN TRÚC PHƯƠNG",
-        "ID": "VCB06",
-        "Department": "Khách mời",
-        "Avatar": "VCB06.jpg"
-    },
-    {
-        "Name": "ANH CAO TẤT THẮNG",
-        "ID": "VCB07",
-        "Department": "Khách mời",
-        "Avatar": "VCB07.jpg"
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba"
     }
 ]

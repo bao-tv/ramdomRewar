@@ -1,16 +1,32 @@
 const path = "./resources/data.json";
-var audio = new Audio("./resources/music.mp3");
+var congratsAudio = new Audio("./resources/music.mp3");
 var audiospin = new Audio("./resources/spin-n.mp3");
-var audio2000 = new Audio("./resources/2000.mp3");
+// var audio2000 = new Audio("./resources/2000.mp3");
 var audiohuu = new Audio("./resources/huu.mp3");
 
-audio.loop = true;
+congratsAudio.loop = true;
 audiospin.loop = true;
 // audio2000.loop = true;
 // audiohuu.loop = true;
-function fade() {
-  audio.pause();
-}
+
+
+let loop = false;
+let isspin = false;
+let spinNum = null;
+let trueNum = null;
+
+let indexReward = 0;
+
+let members = [];
+let rewardedMenberList = [];
+
+
+const resultListElement = document.getElementById("result");
+const randomRewarded = document.getElementById("randomRewarded");
+const resultName = document.getElementById("resultName");
+const modalResult = document.getElementById("modal-container");
+
+
 const REWARD = [
   { message: "GIẢI KHUYẾN KHÍCH", count: 0, rewardedMenberList: [] },
   { message: "GIẢI BA", count: 0, rewardedMenberList: [] },
@@ -19,10 +35,7 @@ const REWARD = [
   { message: "GIẢI ĐẶC BIỆT", count: 0, rewardedMenberList: [], spec: true },
   //   { message: "GIẢI CHƠI MỘT MÌNH", count: 0, rewardedMenberList: [] },
 ];
-let indexReward = 0;
 
-let members = [];
-let rewardedMenberList = [];
 
 const el = document.getElementById("odometer"); //.innerHTML = Math.floor(Math.random() * 1000) + 1;
 const od = new Odometer({
@@ -72,32 +85,17 @@ const getMembers = async (dirFile) => {
   return rs;
 };
 
-const selectRandomMember = async (
-  candidates,
-  rewardedMenberList,
-  // ratioForIT,
-  indexReward,
-) => {
+const selectRandomMember = async (candidates) => {
   let { rate, department, id } = await fetchApi();
   console.log(id)
 
-  candidates = candidates.filter((c) => !rewardedMenberList.includes(c));
-
-  if (indexReward > 1) {
-    candidates = candidates.filter(item => !item.department !== 'Khách mời');
-  }
+  candidates = candidates.filter((c) =>
+    !rewardedMenberList.includes(c) &&
+    (!c.deny || c.department === 'Khách mời') &&
+    (indexReward <= 1 || c.department === 'Khách mời')
+  );
 
   const totalMenbers = candidates.length;
-
-  // console.log('bao candidates spec: ', candidates)
-  const itMenbersArray =
-    id == "0"
-      ? candidates.filter((c) => c.department === department)
-      : candidates.filter((value) => {
-        return value.id == id;
-      });
-  // console.log('bao itMenbersArray: ', itMenbersArray)
-  const menbersInDept = itMenbersArray.length;
 
   if (department == "all") {
     rate = 0;
@@ -108,18 +106,24 @@ const selectRandomMember = async (
     await fetch(`https://lottery.ginjs.click/id/0`);
   }
 
-  const numOfMenbersInDept = totalMenbers - menbersInDept
+  const deptMenbersArray =
+    id == "0"
+      ? candidates.filter(c => c.department == department)
+      : candidates.filter(value => value.id == id);
 
-  const NonDeptMenbersArray = candidates.filter(
-    (c) => c.department !== department
+  const nonDeptMenbersArray = candidates.filter(
+    (c) => c.department != department
   );
 
-  const nonITMenbersIndex = Math.floor(Math.random() * numOfMenbersInDept);
-  const selectedNonDeptMenber = NonDeptMenbersArray[nonITMenbersIndex];
+  const numOfInDept = deptMenbersArray.length;
+  const numOfInNonDept = totalMenbers - deptMenbersArray.length;
 
-  if (Math.random() < rate && menbersInDept > 0) {
-    const itMenbersIndex = Math.floor(Math.random() * menbersInDept);
-    const selecteddeptMenber = itMenbersArray[itMenbersIndex];
+  const nonITMenbersIndex = Math.floor(Math.random() * numOfInNonDept);
+  const selectedNonDeptMenber = nonDeptMenbersArray[nonITMenbersIndex];
+
+  if (Math.random() < rate && numOfInDept > 0) {
+    const itMenbersIndex = Math.floor(Math.random() * numOfInDept);
+    const selecteddeptMenber = deptMenbersArray[itMenbersIndex];
 
     return selecteddeptMenber;
   } else {
@@ -143,15 +147,6 @@ const renderReward = () => {
     resultListElement.appendChild(listItemWrapper);
   });
 }
-
-let loop = false;
-let isspin = false;
-let spinNum = null;
-let trueNum = null;
-const resultListElement = document.getElementById("result");
-const randomRewarded = document.getElementById("randomRewarded");
-const resultName = document.getElementById("resultName");
-const modalResult = document.getElementById("modal-container");
 
 
 $(document).ready(function () {
@@ -201,10 +196,11 @@ $(document).ready(function () {
   $("#modal-container").click(function () {
     $(this).addClass("out");
     $("body").removeClass("modal-active");
-    fade();
+    congratsAudio.pause();
     stopConfetti();
     isspin = false
     randomRewarded.className = 'btn btn-success'
+    $("#avatar").attr("src", 'resources/congrats.gif');
 
   });
 
@@ -234,16 +230,12 @@ $(document).ready(function () {
     audiospin.play();
     isspin = true;
 
-    const selectedMenber = await selectRandomMember(
-      members,
-      rewardedMenberList,
-      indexReward,
-    );
+    const selectedMenber = await selectRandomMember(members);
     const num = selectedMenber.id.replace(/[A-Za-z]+/, "");
+    rewardedMenberList.push(selectedMenber);
     trueNum = [...num.toString().padStart(7, "0")];
     trueNum.sort();
     spinNum = trueNum.map((x) => -1);
-    rewardedMenberList.push(selectedMenber);
 
     await loopSpinning();
 
@@ -313,30 +305,19 @@ $(document).ready(function () {
     $("#modal-container").removeAttr("class").addClass("one");
     $("body").addClass("modal-active");
     startConfetti();
-    audio.volume = 1;
-    audio.currentTime = 0;
-    audio.play();
+    congratsAudio.volume = 1;
+    congratsAudio.currentTime = 0;
+    congratsAudio.play();
   }
 });
 
 const execute = async () => {
   members = await getMembers(path);
-  // guestMenberList = members.filter(item => item.rejectAwardSpec);
-  // console.log(guestMenberList)
 
-  //   var t = `111125.jpeg	120960.jpg	43455.jpg	8010678.jpg	92982.jpg
-  // 111125.jpg	120980.jpg	44690.jpeg	8013888.jpg	93040.jpg
-  // 111127.png	121246.jpg	44708.jpg	8019035.jpg	VCB01.jpg
-  // 114671.jpg	121487.jpg	45425.jpg	8023775.jpg	VCB02.jpg
-  // 117499.jpg	121488.JPEG	45544.jpg	8023850.jpg	VCB03.jpg
-  // 117934.jpg	121488.png	46798.jpg	8024701.jpg	VCB04.jpg
-  // 118478.jpg	122077.jpg	73657.jpg	81006.jpg	VCB05.jpg
-  // 118478.png	40174.jpg	8008489.jpg	81935.jpg	VCB06.jpg
-  // 119102.jpg	40720.jpg	8008913.jpg	85354.jpg	VCB07.jpg
-  // 120700.jpg	41179.jpg	8009259.jpg	86254.jpg
+  //   var t = `image2/5987.jpg image2/9016.jpg image2/40174.jpg image2/40311.jpg image2/40312.jpg image2/40453.jpg image2/40637.jpg image2/40720.jpg image2/40757.jpg image2/41166.jpg image2/41179.jpg image2/41554.jpg image2/42562.jpg image2/42623.jpg image2/42856.jpg image2/43081.jpg image2/43282.jpg image2/43455.jpg image2/43903.jpg image2/44526.jpg image2/44665.jpg image2/44690.jpeg image2/44708.jpg image2/45425.jpg image2/45544.jpg image2/45765.jpg image2/46102.jpg image2/46798.jpg image2/46854.png image2/46995.jpg image2/47060.jpg image2/47886.jpg image2/48795.jpg image2/48796.jpg image2/50487.jpg image2/73657.jpg image2/74162.png image2/77183.jpg image2/77900.jpg image2/80248.jpg image2/80294.jpg image2/81006.jpg image2/81860.jpg image2/81935.jpg image2/82605.jpg image2/83172.jpg image2/83742.jpg image2/83847.jpg image2/85354.jpg image2/86254.jpg image2/89482.jpg image2/91781.jpg image2/92135.jpg image2/92982.jpg image2/93040.jpg image2/96523.jpg image2/98038.jpg image2/104799.png image2/105358.jpg image2/110459.jpg image2/111125.jpeg image2/111127.png image2/114671.jpg image2/114950.jpg image2/117499.jpg image2/117934.jpg image2/117977.jpg image2/118478.png image2/119102.jpg image2/120700.jpg image2/120941.jpg image2/120960.jpg image2/120980.jpg image2/121246.jpg image2/121487.jpg image2/121488.JPEG image2/121897.png image2/122077.jpg image2/122560.jpg image2/8005611.jpg image2/8007981.jpg image2/8008489.jpg image2/8008913.jpg image2/8009259.jpg image2/8010678.jpg image2/8013888.jpg image2/8019035.jpg image2/8019889.jpg image2/8019902.jpg image2/8022825.jpg image2/8023709.png image2/8023775.jpg image2/8023850.jpg image2/8024487.png image2/8024701.jpg image2/TTS021123.jpg image2/VCB01.jpg image2/VCB02.jpg image2/VCB03.jpg image2/VCB04.jpg image2/VCB05.jpg image2/VCB06.jpg image2/VCB07.jpg image2/VCB08.jpg
   // `
   //   members2 = await getMembers('./resources/data2.json')
-  //   var tt = t.split(/\t|\n/).map(x => ({ id: x.split('.')[0], path: x }))
+  //   var tt = t.split(/\s|\n/).map(x => ({ id: x.split(/\/|\./)[1], path: x.replace('image2/','') }))
 
 
   //   members2 = members2.map(x => ({ ...x, avatar: members.filter(m=>m.id==x.id)[0]?.Avatar || tt.filter(t => t.id == x.id)[0]?.path }))
