@@ -14,6 +14,7 @@ let loop = false;
 let isspin = false;
 let spinNum = null;
 let trueNum = null;
+let isWaitEveryDigit = false;
 
 let indexReward = 0;
 
@@ -152,7 +153,7 @@ const renderReward = () => {
 $(document).ready(function () {
   const rateEle = $("#rate-for-it");
 
-  $(this).keydown(function (e) {
+  $(this).keydown(async function (e) {
     const code = e.code;
     console.log(code, loop)
     if (code == "KeyS") {
@@ -170,7 +171,10 @@ $(document).ready(function () {
 
     if (code == "Space") {
       e.preventDefault();
-      console.log('spinNumL: ', spinNum)
+      if (isWaitEveryDigit) {
+        return
+      }
+      // console.log('spinNumL: ', spinNum)
       if (!spinNum) return;
       for (let i = 0; i < spinNum.length; i++) {
         const v = spinNum[i];
@@ -180,17 +184,27 @@ $(document).ready(function () {
           break;
         }
       }
+      isWaitEveryDigit = true;
+      await delay(1000);
+      isWaitEveryDigit = false;
     }
     if (code == 'Escape') {
       modalResult.click()
     }
-    if (code.startsWith("Digit")) {
-      e.preventDefault();
-      const k = parseInt(code.slice(-1));
-      if (k < 6) {
-        $(`#option-reward input#option${k}`).trigger("click");
-      }
-    }
+    // if (code.startsWith("Digit")) {
+    //   e.preventDefault();
+    //   if (isWaitEveryDigit) {
+    //     return
+    //   }
+    //   const k = parseInt(code.slice(-1));
+
+    //   if (k < 6) {
+    //     $(`#option-reward input#option${k}`).trigger("click");
+    //   }
+
+
+
+    // }
   });
 
   $("#modal-container").click(function () {
@@ -321,7 +335,9 @@ const execute = async () => {
 
 
   //   members2 = members2.map(x => ({ ...x, avatar: members.filter(m=>m.id==x.id)[0]?.Avatar || tt.filter(t => t.id == x.id)[0]?.path }))
-  //   console.log(JSON.stringify(members2))
+
+  // const members2 = members.filter(x => !x.avatar).map(x=>x.name+' - '+x.id+' - '+x.department)
+  // console.log(JSON.stringify(members2))
 };
 
 execute();
