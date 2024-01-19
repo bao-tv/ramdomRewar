@@ -267,7 +267,7 @@
         </div>
     </main>
     <div id="modal-container">
-        <div class="js-container container modal-background" style="top:0px !important;">
+        <!-- <div class="js-container container modal-background" style="top:0px !important;">
             <div class="modal" id="bg-modal1">
                 <div id="modal-text">chúc mừng</div>
                 <div class="row d-flex justify-content-between m-3">
@@ -292,6 +292,43 @@
                     </div>
                 </div>
                 <h1 id="modal-p" class="display-3 font-weight-bold animate-charcter">Giải</h2>
+            </div>
+        </div> -->
+        <div class="js-container container modal-background" style="top:0px !important;">
+            <div class="modal" id="bg-modal1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-content bg-transparent border-0" id="bg-modal1-modal-content">
+                    <div class="modal-header d-block p-0" id="modal-text">
+                        chúc mừng
+                    </div>
+                    <div class="modal-body">
+                        <div class="row d-flex justify-content-between m-3">
+                            <div class="col-3 d-flex justify-content-between">
+                                <img id="img-left" src="./resources/cat3.gif"
+                                    class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                                    alt="fatcat">
+                                </div>
+                                <div class="pyro"><div class="before"></div><div class="after"></div></div>
+                            <div class="col-6 d-flex justify-content-between">
+                                <div class="rounded-circle overflow-hidden m-auto" style="height: 400px; width: 400px;">
+                                    <img id="avatar" src="./resources/congrats.gif"
+                                        class="img-fluid w-100 h-100 object-fit-cover"
+                                        style="object-fit: cover !important;"
+                                        onerror="this.onerror=null;this.src='./resources/congrats.gif';" alt="congrasts">
+                                </div>
+                            </div>
+                            <div class="col-3 d-flex justify-content-between">
+                                <img id="img-right" src="./resources/cat5.gif"
+                                    class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                                    alt="cat">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <h1 id="modal-p" class="display-3 font-weight-bold animate-charcter">Giải</h2>
+                        <button type="button" id="reject-modal-bg-modal1" class="btn btn-primary" data-dismiss="modal">CHÊ</button>
+                        <button type="button" id="close-modal-bg-modal1" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
