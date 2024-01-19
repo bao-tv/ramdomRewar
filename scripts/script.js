@@ -146,7 +146,7 @@ const renderReward = () => {
     listItem.className =
       "d-flex justify-content-start align-items-center text-white";
     listItem.style.fontSize = "20px";
-    listItem.textContent = `${index + 1}) ${item.name} - ${item.id} - ${item.department}${item.isReject ? '- (CHÊ GIẢI)' : ''}`;
+    listItem.textContent = `${index + 1}) ${item.name} - ${item.id} - ${item.department} - Bàn ${item.table}${item.isReject ? '- (CHÊ GIẢI)' : ''}`;
     const listItemWrapper = document.createElement("ul");
     listItemWrapper.className = "col-6 mb-0";
     listItemWrapper.appendChild(listItem);
@@ -297,16 +297,10 @@ $(document).ready(function () {
   }
 
   async function setReward(selectedMenber) {
-    // REWARD[indexReward].count++;
-    // REWARD[indexReward].rewardedMenberList.push(selectedMenber);
-
-    // $("#modal-text").html(
-    //   `Congratulations to ${selectedMenber.name} - ${selectedMenber.id} - ${selectedMenber.department}!`
-    // );
     document.getElementById('modal-text').innerHTML = `
     <h3>Congratulations</h3>
     <div>${selectedMenber.name} - ${selectedMenber.id}</div>
-    <h3>${selectedMenber.department}</h3>
+    <h3>${selectedMenber.department} - Bàn ${selectedMenber.table}</h3>
     `
     $("#modal-p").html(`${REWARD[indexReward].message}`);
 
@@ -340,7 +334,6 @@ if (summaryRewardBtn) {
   summaryRewardBtn.addEventListener("click", () => {
     const rewardedRows = (listPer) => {
       listPer = listPer.filter(item => !item.isReject)
-      console.log(listPer)
       return listPer?.map((per, index) => {
         return (
           `<tr>
@@ -348,6 +341,7 @@ if (summaryRewardBtn) {
                     <td>${per.name}</td>
                     <td>${per.id}</td>
                     <td>${per.department}</td>
+                    <td>${per.table}</td>
                 </tr>`
         );
       });
@@ -355,7 +349,7 @@ if (summaryRewardBtn) {
     const contentModal = REWARD.map((item, index) => {
       // console.log(rewardedRows(item.rewardedMenberList))
       return (`<tr class = "${item.spec ? "bg-danger" : "bg-info"} text-light ">
-                    <th colspan="4">${item.message}</th>
+                    <th colspan="5">${item.message}</th>
                 </tr>
                   ${rewardedRows(item.rewardedMenberList).join('')}
                 `
@@ -378,6 +372,7 @@ if (summaryRewardBtn) {
                             <th class="border-top-0" scope="col">Họ và tên</th>
                             <th class="border-top-0" scope="col">Mã số nhân viên</th>
                             <th class="border-top-0" scope="col">Phòng</th>
+                            <th class="border-top-0" scope="col">Bàn</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -398,15 +393,16 @@ const modalTableResultNoReward = document.getElementById("bd-example-modal-resul
 if (summaryNoReward) {
   summaryNoReward.addEventListener("click", () => {
     const menberNoReward = members.filter(c => !rewardedMenberListAttachReject.includes(c))
-    console.log('bao menberNoReward: ', menberNoReward)
     const noRewardedRows = () => {
-      return menberNoReward?.map((per, index) => {
+      const sortedArray = menberNoReward.sort((a, b) => a.table - b.table);
+      return sortedArray?.map((per, index) => {
         return (
           `<tr>
                     <th scope="row">${index + 1}</th>
                     <td>${per.name}</td>
                     <td>${per.id}</td>
                     <td>${per.department}</td>
+                    <td>${per.table}</td>
                 </tr>`
         );
       });
@@ -428,6 +424,7 @@ if (summaryNoReward) {
                             <th class="border-top-0" scope="col">Họ và tên</th>
                             <th class="border-top-0" scope="col">Mã số nhân viên</th>
                             <th class="border-top-0" scope="col">Phòng</th>
+                            <th class="border-top-0" scope="col">Bàn</th>
                         </tr>
                         </thead>
                         <tbody>
