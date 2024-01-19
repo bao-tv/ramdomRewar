@@ -108,7 +108,8 @@
         "name": "VÕ ANH KHOA",
         "id": "81007",
         "department": "Bộ phận IT",
-        "table": 9
+        "table": 9,
+        "avatar": "81007.png"
     },
     {
         "name": "NGUYỄN ĐỨC THUẬN",
@@ -121,7 +122,9 @@
         "name": "CAO TRẦN ĐĂNG KHOA",
         "id": "73699",
         "department": "Bộ phận IT",
-        "table": 10
+        "table": 10,
+        "avatar": "73699.png"
+
     },
     {
         "name": "NGUYỄN QUỐC HUỲNH",
@@ -400,7 +403,8 @@
         "name": "NGUYỄN THỊ THU",
         "id": "111103",
         "department": "Phòng TCKT",
-        "table": 4
+        "table": 4,
+        "avatar": "111103.png"
     },
     {
         "name": "NGUYỄN THỊ GIANG",
