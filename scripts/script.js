@@ -365,7 +365,7 @@ if (summaryRewardBtn) {
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header border-0 bg-warning">
-                    <h5 class="modal-title w-100 d-flex justify-content-center font-weight-bold text-danger " style="font-size: 30px" id="exampleModalLabel">KẾT QUẢ</h5>
+                    <h5 class="modal-title w-100 d-flex justify-content-center font-weight-bold text-danger " style="font-size: 30px" id="exampleModalLabel">DANH SÁCH TRÚNG GIẢI</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -415,7 +415,7 @@ if (summaryNoReward) {
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header border-0 bg-warning">
-                    <h5 class="modal-title w-100 d-flex justify-content-center font-weight-bold text-danger " style="font-size: 30px" id="exampleModalLabel">KẾT QUẢ</h5>
+                    <h5 class="modal-title w-100 d-flex justify-content-center font-weight-bold text-danger " style="font-size: 30px" id="exampleModalLabel">DANH SÁCH KHÔNG TRÚNG GIẢI</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
