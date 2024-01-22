@@ -14,20 +14,7 @@ body .bg-dao {
     right: 0;
     background-size: cover;
 }
-/* header{
-    background-image: url(../images/bg-header.png) !important;
-    background-repeat: no-repeat;
-    background-position: right top;
-    position: absolute;
-    header: 100px
-    top: 0;
-    right: 0;
-    background-size: cover;
-} */
 header div h1, h2 {
-    /* position: relative; */
-    /* padding: 0;
-    margin: 0; */
     font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 30px;
@@ -75,7 +62,12 @@ header div .khoi {
     background-size: cover !important;
 }
 
-#modal-text div {
+#modal-text {
+    display: flex;
+    justifin
+}
+
+#modal-text .name {
     font-size: 3rem;
     margin-top: 0;
     color: #faf200;
@@ -83,21 +75,11 @@ header div .khoi {
     font-weight: 700;
 }
 
-/* #modal-container .modal:before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    z-index: -1;
-} */
-
-#modal-container h3 {
+#modal-container .department {
     font-size: 2rem;
-    margin-bottom: 0.5rem;
     color: #fff;
+    font-weight: 700;
+    margin-left: 0.5rem
 }
 
 #modal-container h1 {
@@ -488,7 +470,7 @@ canvas {
 
 #modal-container .modal-background .modal {
     background: white;
-    padding: 20px;
+    padding: 10px;
     display: inline-block;
     border-radius: 3px;
     font-weight: 300;

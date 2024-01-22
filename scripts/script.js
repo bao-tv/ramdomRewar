@@ -15,6 +15,7 @@ let isspin = false;
 let spinNum = null;
 let trueNum = null;
 let isWaitEveryDigit = false;
+let selectedMenber = null;
 
 let indexReward = 0;
 
@@ -26,6 +27,8 @@ const resultListElement = document.getElementById("result");
 const randomRewarded = document.getElementById("randomRewarded");
 const resultName = document.getElementById("resultName");
 const modalResult = document.getElementById("modal-container");
+const acceptModalRewardBtn = document.getElementById("close-modal-bg-modal1");
+const rejectModalRewardBtn = document.getElementById("reject-modal-bg-modal1");
 
 
 const REWARD = [
@@ -157,10 +160,8 @@ const renderReward = () => {
 
 $(document).ready(function () {
   const rateEle = $("#rate-for-it");
-
   $(this).keydown(async function (e) {
     const code = e.code;
-    console.log(code, loop)
     if (code == "KeyS") {
       e.preventDefault();
       if (!loop) {
@@ -168,6 +169,27 @@ $(document).ready(function () {
           console.log("SPAM");
         else
           randomRewarded.click()
+      }
+      else {
+        loop = false;
+      }
+    }
+    if (code == "KeyC") {
+      e.preventDefault();
+      if (!loop) {
+        rejectModalRewardBtn.click()
+        selectedMenber= null;
+      }
+      else {
+        loop = false;
+      }
+    }
+    
+    if (code == "KeyN") {
+      e.preventDefault();
+      if (!loop) {
+        acceptModalRewardBtn.click()
+        selectedMenber = null;
       }
       else {
         loop = false;
@@ -224,7 +246,7 @@ $(document).ready(function () {
     audiospin.play();
     isspin = true;
 
-    const selectedMenber = await selectRandomMember(members);
+    selectedMenber = await selectRandomMember(members);
     const num = selectedMenber.id.replace(/[A-Za-z]+/, "");
     rewardedMenberListAttachReject.push(selectedMenber);
     trueNum = [...num.toString().padStart(7, "0")];
@@ -249,7 +271,8 @@ $(document).ready(function () {
       audiospin.pause();
     }
     setReward(selectedMenber);
-    document.getElementById("close-modal-bg-modal1").onclick = () => {
+    
+    const acceptReward = () => {
       $("#modal-container").addClass("out");
       $("body").removeClass("modal-active");
       congratsAudio.pause();
@@ -257,12 +280,15 @@ $(document).ready(function () {
       isspin = false
       randomRewarded.className = 'btn btn-success'
       $("#avatar").attr("src", 'resources/congrats.gif');
-      REWARD[indexReward].count++;
-      REWARD[indexReward].rewardedMenberList.push(selectedMenber);
-      resultListElement.innerHTML = "";
-      renderReward();
+      if(selectedMenber) {
+        setReward(selectedMenber);
+        REWARD[indexReward].count++;
+        REWARD[indexReward].rewardedMenberList.push(selectedMenber);
+        resultListElement.innerHTML = "";
+        renderReward();
+      }
     }
-    document.getElementById("reject-modal-bg-modal1").onclick = () => {
+    const rejectModalReward = () => {
       $("#modal-container").addClass("out");
       $("body").removeClass("modal-active");
       congratsAudio.pause();
@@ -270,11 +296,18 @@ $(document).ready(function () {
       isspin = false
       randomRewarded.className = 'btn btn-success'
       $("#avatar").attr("src", 'resources/congrats.gif');
-      REWARD[indexReward].count++;
-      REWARD[indexReward].rewardedMenberList.push({...selectedMenber, isReject: true});
-      resultListElement.innerHTML = "";
-      renderReward();
+      if(selectedMenber) {
+        setReward(selectedMenber);
+        REWARD[indexReward].count++;
+        REWARD[indexReward].rewardedMenberList.push({...selectedMenber, isReject: true});
+        resultListElement.innerHTML = "";
+        renderReward();
+      }
     }
+    
+    acceptModalRewardBtn.onclick = acceptReward;
+    rejectModalRewardBtn.onclick = rejectModalReward;
+
   });
 
   async function loopSpinning() {
@@ -298,9 +331,8 @@ $(document).ready(function () {
 
   async function setReward(selectedMenber) {
     document.getElementById('modal-text').innerHTML = `
-    <h3>Congratulations</h3>
-    <div>${selectedMenber.name} - ${selectedMenber.id}</div>
-    <h3>${selectedMenber.department} - Bàn ${selectedMenber.table}</h3>
+    <span class="name">${selectedMenber.name} - ${selectedMenber.id}</span>
+    <span class="department"> - ${selectedMenber.department} - Bàn ${selectedMenber.table}</span>
     `
     $("#modal-p").html(`${REWARD[indexReward].message}`);
 
@@ -394,7 +426,7 @@ if (summaryNoReward) {
   summaryNoReward.addEventListener("click", () => {
     const menberNoReward = members.filter(c => !rewardedMenberListAttachReject.includes(c))
     const noRewardedRows = () => {
-      const sortedArray = menberNoReward.sort((a, b) => a.table - b.table);
+      const sortedArray = menberNoReward.sort((a, b) => a.department - b.department);
       return sortedArray?.map((per, index) => {
         return (
           `<tr>

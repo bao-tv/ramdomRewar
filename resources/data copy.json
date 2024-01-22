@@ -762,5 +762,69 @@
         "department": "Phòng XNK",
         "table": 13,
         "avatar": "86254.jpg"
+    },
+    {
+        "name": "Nguyễn Thúy Phượng",
+        "id": "VCB01",
+        "department": "Khách mời",
+        "table": 1,
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba",
+        "avatar": "VCB01.jpg"
+    },
+    {
+        "name": "Nguyễn Nhật Quang",
+        "id": "VCB02",
+        "department": "Khách mời",
+        "table": 4,
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba",
+        "avatar": "VCB02.jpg"
+    },
+    {
+        "name": "Dương Nguyễn Trúc Nhi",
+        "id": "VCB03",
+        "department": "Khách mời",
+        "table": 4,
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba",
+        "avatar": "VCB03.jpg"
+    },
+    {
+        "name": "Trần Chánh Trực",
+        "id": "VCB04",
+        "department": "Khách mời",
+        "table": 1,
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba",
+        "avatar": "VCB04.jpg"
+    },
+    {
+        "name": "Hà Mạnh Linh",
+        "id": "VCB05",
+        "department": "Khách mời",
+        "table": 4,
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba",
+        "avatar": "VCB05.jpg"
+    },
+    {
+        "name": "Trần Trúc Phương",
+        "id": "VCB06",
+        "department": "Khách mời",
+        "table": 4,
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba",
+        "avatar": "VCB06.jpg"
+    },
+    {
+        "name": "Cao Tất Thắng",
+        "id": "VCB07",
+        "department": "Khách mời",
+        "table": 1,
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba",
+        "avatar": "VCB07.jpg"
+    },
+    {
+        "name": "Vũ Thị Thanh Tâm",
+        "id": "VCB08",
+        "department": "Khách mời",
+        "table": 4,
+        "deny": "Chỉ random trong giải Khuyến khích hoặc giải ba",
+        "avatar": "VCB08.jpg"
     }
 ]

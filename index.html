@@ -76,29 +76,6 @@
             }
         }
 
-        /* header h1 {
-            text-shadow: .1em .1em 0 #2980b9;
-            text-transform: uppercase;
-            background: linear-gradient(to right, #c0392b 0%, #2980b9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Poppins', sans-serif;
-        } */
-
-
-        /* header h1 {
-            position: relative;
-            padding: 0;
-            margin: 0;
-            font-family: "Raleway", sans-serif;
-            font-weight: 300;
-            font-size: 40px;
-            color: #080808;
-            -webkit-transition: all 0.4s ease 0s;
-            -o-transition: all 0.4s ease 0s;
-            transition: all 0.4s ease 0s;
-        } */
-
         header h1 span {
             display: block;
             font-size: 0.5em;
@@ -152,7 +129,7 @@
                     <img style="position: absolute;left: 2rem;top: 0.5rem; height: 50px;" src="./resources/logo.png"
                         alt="logo-PPJ-new-slogan">
                     <h1>CHƯƠNG TRÌNH BỐC THĂM TRÚNG THƯỞNG</h1>
-                    <div class="khoi mt-3">KHỐI QUẢN TRị TÀI CHÍNH - KIỂM SOÁT RỦI RO</div>
+                    <div class="khoi mt-3">KHỐI QUẢN TRị TÀI CHÍNH, KIỂM SOÁT VÀ QUẢN TRỊ SỐ</div>
                 </div>
             </div>
             
@@ -169,19 +146,19 @@
             </div>
             <div class="row mt-3 mb-3 d-flex justify-content-center">
                 <div class="btn-group btn-group-toggle " id="option-reward" data-toggle="buttons">
-                    <label class="btn btn-outline-primary active">
+                    <label class="btn btn-primary active">
                         <input type="radio" name="options" id="option1" autocomplete="off" checked> Giải Khuyến khích
                     </label>
-                    <label class="btn btn-outline-success">
+                    <label class="btn btn-success">
                         <input type="radio" name="options" id="option2" autocomplete="off"> Giải Ba
                     </label>
-                    <label class="btn btn-outline-dark">
+                    <label class="btn btn-dark">
                         <input type="radio" name="options" id="option3" autocomplete="off"> Giải Nhì
                     </label>
-                    <label class="btn btn-outline-info">
+                    <label class="btn btn-info">
                         <input type="radio" name="options" id="option4" autocomplete="off"> Giải Nhất
                     </label>
-                    <label class="btn btn-outline-danger">
+                    <label class="btn btn-danger">
                         <input type="radio" name="options" id="option5" autocomplete="off"> Giải Đặc Biệt
                     </label>
                     <!-- <label class="btn btn-outline-dark">
@@ -273,36 +250,36 @@
         <div class="js-container container modal-background" style="top:0px !important;">
             <div class="modal" id="bg-modal1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-content bg-transparent border-0" id="bg-modal1-modal-content">
-                    <div class="modal-header d-block p-0" id="modal-text">
+                    <div class="modal-header d-flex justify-content-center align-items-center p-0 border-0" id="modal-text">
                         chúc mừng
                     </div>
                     <div class="modal-body p-1">
                         <div class="row d-flex justify-content-between m-3">
-                            <div class="col-3 d-flex justify-content-between">
+                            <div class="col-3 d-flex justify-content-between" style="max-width: 200px;">
                                 <img id="img-left" src="./resources/cat3.gif"
                                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                                     alt="fatcat">
                                 </div>
                                 <div class="pyro"><div class="before"></div><div class="after"></div></div>
                             <div class="col-6 d-flex justify-content-between">
-                                <div class="rounded-circle overflow-hidden m-auto" style="height: 400px; width: 400px;">
+                                <div class="rounded-circle overflow-hidden m-auto" style="height: 300px; width: 300px;">
                                     <img id="avatar" src="./resources/congrats.gif"
                                         class="img-fluid w-100 h-100 object-fit-cover"
                                         style="object-fit: cover !important;"
                                         onerror="this.onerror=null;this.src='./resources/congrats.gif';" alt="congrasts">
                                 </div>
                             </div>
-                            <div class="col-3 d-flex justify-content-between">
+                            <div class="col-3 d-flex justify-content-between" style="max-width: 200px;">
                                 <img id="img-right" src="./resources/cat5.gif"
                                     class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                                     alt="cat">
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer justify-content-center">
                         <h1 id="modal-p" class="display-3 font-weight-bold animate-charcter">Giải</h2>
-                        <button type="button" id="reject-modal-bg-modal1" class="btn btn-primary" data-dismiss="modal">CHÊ GIẢI</button>
-                        <button type="button" id="close-modal-bg-modal1" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="modal-footer justify-content-end border-0 mb-3" style="margin-top: -10px;">
+                        <button type="button" id="reject-modal-bg-modal1" class="btn btn-primary" data-dismiss="modal">CHÊ</button>
+                        <button type="button" id="close-modal-bg-modal1" class="btn btn-secondary" data-dismiss="modal">NHẬN</button>
                     </div>
                 </div>
             </div>
