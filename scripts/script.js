@@ -30,7 +30,6 @@ const modalResult = document.getElementById("modal-container");
 const acceptModalRewardBtn = document.getElementById("close-modal-bg-modal1");
 const rejectModalRewardBtn = document.getElementById("reject-modal-bg-modal1");
 
-
 const REWARD = [
   { message: "GIẢI KHUYẾN KHÍCH", count: 0, rewardedMenberList: [] },
   { message: "GIẢI BA", count: 0, rewardedMenberList: [] },
@@ -157,6 +156,68 @@ const renderReward = () => {
   });
 }
 
+async function setReward(selectedMenber) {
+  document.getElementById('modal-text').innerHTML = `
+  <span class="name">${selectedMenber.name} - ${selectedMenber.id}</span>
+  <span class="department"> - ${selectedMenber.department} - Bàn ${selectedMenber.table}</span>
+  `
+  $("#modal-p").html(`${REWARD[indexReward].message}`);
+
+  const numImg = Math.floor(Math.random() * 5) + 1;
+
+  const l = selectedMenber.avatar
+    ? `./images/${selectedMenber.avatar}`
+    : `./resources/congrats.gif`;
+  $("#avatar").attr("src", l);
+  $("#img-left").attr("src", `./resources/cat${numImg}.gif`);
+  $("#img-right").attr("src", `./resources/cat${numImg - 1}.gif`);
+
+  $("#modal-container").removeAttr("class").addClass("one");
+  $("body").addClass("modal-active");
+  startConfetti();
+  congratsAudio.volume = 1;
+  congratsAudio.currentTime = 0;
+  congratsAudio.play();
+}
+
+const acceptReward = () => {
+  $("#modal-container").addClass("out");
+  $("body").removeClass("modal-active");
+  congratsAudio.pause();
+  stopConfetti();
+  isspin = false
+  randomRewarded.className = 'btn btn-success'
+  $("#avatar").attr("src", 'resources/congrats.gif');
+  if(selectedMenber) {
+    // setReward(selectedMenber);
+    REWARD[indexReward].count++;
+    REWARD[indexReward].rewardedMenberList.push(selectedMenber);
+    resultListElement.innerHTML = "";
+    renderReward();
+  }
+  return;
+}
+acceptModalRewardBtn.onclick = acceptReward;
+const rejectModalReward = () => {
+  document.body.classList.remove("modal-active");
+
+  document.getElementById("modal-container").classList.add("out");
+  congratsAudio.pause();
+  stopConfetti();
+  isspin = false
+  randomRewarded.className = 'btn btn-success'
+  $("#avatar").attr("src", 'resources/congrats.gif');
+  if(selectedMenber) {
+    // setReward(selectedMenber);
+    REWARD[indexReward].count++;
+    REWARD[indexReward].rewardedMenberList.push({...selectedMenber, isReject: true});
+    resultListElement.innerHTML = "";
+  }
+  renderReward();
+  return;
+}
+rejectModalRewardBtn.onclick = rejectModalReward;
+
 
 $(document).ready(function () {
   const rateEle = $("#rate-for-it");
@@ -272,42 +333,6 @@ $(document).ready(function () {
     }
     setReward(selectedMenber);
     
-    const acceptReward = () => {
-      $("#modal-container").addClass("out");
-      $("body").removeClass("modal-active");
-      congratsAudio.pause();
-      stopConfetti();
-      isspin = false
-      randomRewarded.className = 'btn btn-success'
-      $("#avatar").attr("src", 'resources/congrats.gif');
-      if(selectedMenber) {
-        setReward(selectedMenber);
-        REWARD[indexReward].count++;
-        REWARD[indexReward].rewardedMenberList.push(selectedMenber);
-        resultListElement.innerHTML = "";
-        renderReward();
-      }
-    }
-    const rejectModalReward = () => {
-      $("#modal-container").addClass("out");
-      $("body").removeClass("modal-active");
-      congratsAudio.pause();
-      stopConfetti();
-      isspin = false
-      randomRewarded.className = 'btn btn-success'
-      $("#avatar").attr("src", 'resources/congrats.gif');
-      if(selectedMenber) {
-        setReward(selectedMenber);
-        REWARD[indexReward].count++;
-        REWARD[indexReward].rewardedMenberList.push({...selectedMenber, isReject: true});
-        resultListElement.innerHTML = "";
-        renderReward();
-      }
-    }
-    
-    acceptModalRewardBtn.onclick = acceptReward;
-    rejectModalRewardBtn.onclick = rejectModalReward;
-
   });
 
   async function loopSpinning() {
@@ -329,29 +354,7 @@ $(document).ready(function () {
     return result;
   }
 
-  async function setReward(selectedMenber) {
-    document.getElementById('modal-text').innerHTML = `
-    <span class="name">${selectedMenber.name} - ${selectedMenber.id}</span>
-    <span class="department"> - ${selectedMenber.department} - Bàn ${selectedMenber.table}</span>
-    `
-    $("#modal-p").html(`${REWARD[indexReward].message}`);
 
-    const numImg = Math.floor(Math.random() * 5) + 1;
-
-    const l = selectedMenber.avatar
-      ? `./images/${selectedMenber.avatar}`
-      : `./resources/congrats.gif`;
-    $("#avatar").attr("src", l);
-    $("#img-left").attr("src", `./resources/cat${numImg}.gif`);
-    $("#img-right").attr("src", `./resources/cat${numImg - 1}.gif`);
-
-    $("#modal-container").removeAttr("class").addClass("one");
-    $("body").addClass("modal-active");
-    startConfetti();
-    congratsAudio.volume = 1;
-    congratsAudio.currentTime = 0;
-    congratsAudio.play();
-  }
 });
 
 const execute = async () => {
