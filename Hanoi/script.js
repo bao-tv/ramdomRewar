@@ -148,7 +148,7 @@ const renderReward = () => {
     listItem.className =
       "d-flex justify-content-start align-items-center text-white";
     listItem.style.fontSize = "20px";
-    listItem.textContent = `${index + 1}) ${item.name} - ${item.id} - ${item.department} - Bàn ${item.table}${item.isReject ? '- (CHÊ GIẢI)' : ''}`;
+    listItem.textContent = `${index + 1}) ${item.name} - ${item.id} - ${item.department} ${item.isReject ? '- (CHÊ GIẢI)' : ''}`;
     const listItemWrapper = document.createElement("ul");
     listItemWrapper.className = "col-6 mb-0";
     listItemWrapper.appendChild(listItem);
@@ -376,7 +376,6 @@ if (summaryRewardBtn) {
                     <td>${per.name}</td>
                     <td>${per.id}</td>
                     <td>${per.department}</td>
-                    <td>${per.table}</td>
                 </tr>`
         );
       });
@@ -407,7 +406,6 @@ if (summaryRewardBtn) {
                             <th class="border-top-0" scope="col">Họ và tên</th>
                             <th class="border-top-0" scope="col">Mã số nhân viên</th>
                             <th class="border-top-0" scope="col">Phòng</th>
-                            <th class="border-top-0" scope="col">Bàn</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -437,7 +435,6 @@ if (summaryNoReward) {
                     <td>${per.name}</td>
                     <td>${per.id}</td>
                     <td>${per.department}</td>
-                    <td>${per.table}</td>
                 </tr>`
         );
       });
@@ -459,7 +456,6 @@ if (summaryNoReward) {
                             <th class="border-top-0" scope="col">Họ và tên</th>
                             <th class="border-top-0" scope="col">Mã số nhân viên</th>
                             <th class="border-top-0" scope="col">Phòng</th>
-                            <th class="border-top-0" scope="col">Bàn</th>
                         </tr>
                         </thead>
                         <tbody>
