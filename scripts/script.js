@@ -189,7 +189,7 @@ const acceptReward = () => {
   randomRewarded.className = 'btn btn-success'
   $("#avatar").attr("src", 'resources/congrats.gif');
   if(selectedMenber) {
-    // setReward(selectedMenber);
+    // setReward(selectedMenber); -m
     REWARD[indexReward].count++;
     REWARD[indexReward].rewardedMenberList.push(selectedMenber);
     resultListElement.innerHTML = "";
